@@ -1,0 +1,14 @@
+
+public class LocalVariablesDemo {
+	
+	  public static void m1() {
+		    int a=100; // local variable
+		    System.out.println(a);	
+		    System.out.println(LocalVariablesDemo.a);
+	  }
+	 
+	public static void main(String[] args) {
+		LocalVariablesDemo.m1();
+	}
+	
+}

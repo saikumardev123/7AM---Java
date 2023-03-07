@@ -1,0 +1,6 @@
+
+public class LikesDemo {
+	
+	 static int noOfLikes = 0; 
+
+}

@@ -1,0 +1,15 @@
+
+public class InstanceVariablesDemo {
+	
+	
+	  int age=21;
+	  String name= "kiran";
+	  
+	  
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

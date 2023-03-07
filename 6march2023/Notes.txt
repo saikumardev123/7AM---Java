@@ -1,0 +1,127 @@
+
+Object Oriented Programming:
+
+OOPs is a paradigm where all the real time objects are visualized using 
+java objects , their relationship to solve a realtime problem. 
+
+
+Real time Object: Any physical entity that has state and action can be 
+considered as realtime object. 
+
+We represent realtime objects by creating java objects using a template 
+called class. 
+
+
+Building blocks of Java:
+
+Variables:
+
+A variable is an identifier which is used to identify some data that 
+can be used in the application. 
+
+syntax:
+
+ datatype var_name = value;
+
+In Java, we have 3 types of variables. 
+
+1. instance / non static variables :
+
+
+A variable that is created without a static keyword and is accessed using 
+an object is known as non static variable. 
+
+since these variables are bound to object,hence we can call them as 
+instance variables.
+
+
+code_snippet: 
+
+public class InstanceVariablesDemo {
+	
+	  int age=21;
+	  String name= "kiran";
+	  String email = "kiran@gmail.com";  
+	
+	
+	public static void main(String[] args) {
+		
+		  InstanceVariablesDemo obj1 = new InstanceVariablesDemo();
+		  System.out.println(obj1.age);
+		  System.out.println(obj1.name);
+		  System.out.println(obj1.email);
+		  obj1.age=23;
+		  obj1.name= "kiran kumar";
+		  
+		  InstanceVariablesDemo obj2 = new InstanceVariablesDemo();
+		  System.out.println(obj2.age); // 21
+		  System.out.println(obj2.name); // kiran
+		
+	}
+
+}
+
+Problem Statement: 
+
+
+ABC bank would like to provide online banking facility to its customers and 
+new customers can also create a new account and use the services. 
+1. withdraw 
+2. deposit
+
+
+Object: Customer 
+
+properties: name, accNo,accountBalance,address....
+action: withdraw, deposit
+
+Solution:
+
+
+
+class Customer{
+	
+	String name;
+	String accNo;
+	long accBalance; 
+	String address;
+	
+	public void withdraw(long amount) {
+		this.accBalance = this.accBalance - amount;
+	}
+	
+	public void deposit(long amount) {
+		this.accBalance = this.accBalance + amount;
+	}
+}
+ 
+public class BankingApp {
+
+	public static void main(String[] args) {
+		
+		Customer customer1= new Customer();
+		customer1.name = "kiran";
+		customer1.accNo = "12356";
+		customer1.accBalance = 9000;
+		customer1.address ="Hyderabad";
+		
+		Customer customer2= new Customer();
+		customer2.name = "rajesh";
+		customer2.accNo = "878788";
+		customer2.accBalance = 10000;
+		customer2.address ="Hyderabad";
+		
+		System.out.println(customer1.accBalance);
+		customer1.deposit(9000);
+		System.out.println(customer1.accBalance);
+		
+		customer2.withdraw(2000);
+		System.out.println(customer2.accBalance);
+		
+	}
+	
+}
+
+2. static variables 
+3. local variables 
+

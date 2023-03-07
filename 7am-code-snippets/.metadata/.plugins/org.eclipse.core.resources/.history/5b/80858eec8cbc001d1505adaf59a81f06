@@ -1,0 +1,12 @@
+
+class Product{
+	
+	static String pid;
+	static String name;
+	static long price; // 0
+	
+}
+
+public class ProductDemo {
+
+}

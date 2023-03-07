@@ -1,0 +1,17 @@
+
+public class LocalVariablesDemo {
+	
+
+	  public static void m1() {
+		 
+		     if(20 < 200) {
+		    	int a = 200;
+		     }
+		     System.out.println(a);
+	  }
+	 
+	public static void main(String[] args) {
+		LocalVariablesDemo.m1();
+	}
+	
+}

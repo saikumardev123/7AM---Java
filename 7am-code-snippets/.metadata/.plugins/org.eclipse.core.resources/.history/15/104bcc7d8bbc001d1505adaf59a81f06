@@ -1,0 +1,19 @@
+
+public class LikesDemo {
+	 static int noOfLikes = 0; 
+	 
+	 public void m1() {
+		 System.out.println(noOfLikes);
+		 noOfLikes++;
+		
+	 }
+	 public void m2() {
+		 System.out.println(noOfLikes);
+		 noOfLikes++;
+	 }
+	 
+	  public static void main(String[] args) {
+		  
+	}
+
+}

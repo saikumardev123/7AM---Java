@@ -1,0 +1,13 @@
+
+public class StaticVariablesDemo {
+	
+    static int a=10;
+    static String b="hello";
+    
+     public static void main(String[] args) {
+		
+    	  System.out.println(a);
+    	 
+	}
+
+}

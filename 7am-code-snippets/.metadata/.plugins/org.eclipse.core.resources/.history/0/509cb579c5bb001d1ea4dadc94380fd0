@@ -1,0 +1,19 @@
+
+
+class Customer{
+	
+	String name;
+	String accNo;
+	long accBalance;
+	String address;
+	
+}
+ 
+
+public class BankingApp {
+
+	public static void main(String[] args) {
+		
+	}
+	
+}

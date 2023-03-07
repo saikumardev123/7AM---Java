@@ -1,0 +1,18 @@
+
+public class LikesDemo {
+	 static int noOfLikes = 0; 
+	  public static void main(String[] args) {
+		  LikesDemo user1 = new LikesDemo();
+		  user1.noOfLikes++;
+		  LikesDemo user2 = new LikesDemo();
+		  LikesDemo user3 = new LikesDemo();
+		  LikesDemo user4 = new LikesDemo();
+		  user2.noOfLikes++;
+		  user3.noOfLikes++;
+		  user4.noOfLikes++;
+		  user4.noOfLikes--;
+		  
+		  System.out.println("Likes :"+ noOfLikes); 
+	}
+
+}

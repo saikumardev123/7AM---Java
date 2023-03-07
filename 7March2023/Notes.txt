@@ -1,0 +1,125 @@
+Static Variables:
+
+A variable that is associated with a class is known as static variable / class 
+variable. 
+
+We use static keyword before the variable creation to create a static 
+variable. 
+
+static Variables maintains only one copy of the memory which means modification 
+of the static variable in a class can effect the original value. 
+
+The static variables will be created outside of a method.
+
+
+public class StaticVariablesDemo {
+	
+    static int a=10;
+    static String b="hello";
+    
+     public static void main(String[] args) {
+    	  System.out.println(a);
+    	  System.out.println(StaticVariablesDemo.a); // recommended
+    	  System.out.println(StaticVariablesDemo.b); // recommended
+
+    	  StaticVariablesDemo obj = new StaticVariablesDemo();
+    	  System.out.println(obj.a);
+    	  System.out.println(obj.b);
+    	  obj.a = 200;
+    	  System.out.println(StaticVariablesDemo.a); // 
+    	  StaticVariablesDemo.b = "World";
+    	  System.out.println(obj.b); // 
+    	 
+	}
+
+}
+
+
+
+example:
+
+
+public class LikesDemo {
+	 static int noOfLikes = 0; 
+	  public static void main(String[] args) {
+		  LikesDemo user1 = new LikesDemo();
+		  user1.noOfLikes++;
+		  LikesDemo user2 = new LikesDemo();
+		  LikesDemo user3 = new LikesDemo();
+		  LikesDemo user4 = new LikesDemo();
+		  user2.noOfLikes++;
+		  user3.noOfLikes++;
+		  user4.noOfLikes++;
+		  user4.noOfLikes--;
+		  
+		  System.out.println("Likes :"+ noOfLikes); 
+	}
+
+}
+
+
+differences between static and non static variables:
+
+
+class Product{
+	 static String pid; //    remove static and see the output
+	static String name;
+	 static long price; // 0
+}
+public class ProductDemo {
+	public static void main(String[] args) {
+		Product p1= new Product();
+		p1.pid="101x";
+		p1.price=2000;
+		p1.name = "Prod1";
+		System.out.println(p1.pid);
+		System.out.println(p1.price);
+		System.out.println(p1.name);
+		System.out.println("---------------------");
+		Product p2= new Product();
+		p2.pid="200";
+		p2.price=4000;
+		p2.name = "Prod2";
+		System.out.println(p2.pid);
+		System.out.println(p2.price);
+		System.out.println(p2.name);
+		System.out.println("---------------------");
+		System.out.println(p1.pid); // 
+		System.out.println(p1.price);
+		System.out.println(p1.name);
+		
+	}
+	
+}
+
+
+Local variables:
+
+If we create any variable inside a method, then it is known as 
+local variable.
+public class LocalVariablesDemo {
+	
+
+	  public static void m1() {
+		    int a=100; // local variable
+		    System.out.println(a);	
+	  }
+	 
+	public static void main(String[] args) {
+		LocalVariablesDemo.m1();
+	}
+	
+}
+
+
+Task: 
+
+Create a practical example differentiating local variables, static 
+variables and non static variables. 
+
+
+
+
+
+
+

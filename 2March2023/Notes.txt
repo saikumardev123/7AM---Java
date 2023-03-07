@@ -1,0 +1,26 @@
+JDK:  Java Development Kit - contains the required tools and jar files 
+for application development. 
+
+jar - java archive file - it contains the required packages (classes and interfaces).
+
+JRE: Java Runtime Environment -provides the Environment to run java applications. 
+
+JVM:  Java Virtual Machine - responsible for running the java application in 
+JRE. 
+
+First Application using Java:
+
+class FirstApp {
+public static void main(String[] args){
+   System.out.println("Hello World!!");
+   }
+}
+
+* The filename and classname need not to be the same (however, it is recommended to 
+have the same name). 
+
+
+
+
+
+

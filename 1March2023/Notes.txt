@@ -1,0 +1,23 @@
+Java:
+
+* It is an Object Oriented Programming language developed by 
+James Gosling. 
+
+Object Object Programming:  Representation of realtime entities in 
+the form of objects , providing the communication between them to 
+provide a solution for a realtime problem.
+
+Java can be divided into 3 editions. 
+
+1. JSE - Java Standard Edition  -  Desktop Applications 
+2. JEE - Java Enterpise Edition - Web Applications  / Enterprise Apps
+3. JME - Java Mobile / Micro Edition - Mobile Apps.
+
+Environment Set up:
+
+1. install jdk, jre 
+
+https://www.oracle.com/in/java/technologies/downloads/#jdk17-windows
+
+
+

@@ -1,0 +1,15 @@
+
+public class LocalVariablesDemo {
+	
+	  public static void m1() {
+	
+		    int a=100;
+	  
+	  }
+	  
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

@@ -1,0 +1,30 @@
+
+public class LikesDemo {
+	 static int noOfLikes = 0; 
+	 int b=200;
+	 
+	 public static void m1() { // static method
+		 System.out.println(noOfLikes); // 0
+		 
+		 System.out.println(new LikesDemo().b);
+		 noOfLikes++;
+		
+	 }
+	 
+	 public void m3() { // non static method
+		 System.out.println(b);
+	 }
+	 public static void m2() {
+		 System.out.println(noOfLikes); // 1
+		 noOfLikes++;
+	 }
+	 
+	  public static void main(String[] args) {
+		  
+		     m1();
+		     m2();
+		     System.out.println(noOfLikes); // 2 
+		  
+	}
+
+}
