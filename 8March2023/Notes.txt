@@ -1,0 +1,222 @@
+Data Types:
+
+There are 2 types of data types. 
+
+1. primitive  types:
+
+ Java provides 8 primitive data types. 
+
+
+Data Type	Default Value	Default size
+boolean	false	1 bit
+char	'\u0000'	2 byte
+byte	0	1 byte -  2power7 - 1 = 128 - 1 = 127
+short	0	2 byte  -  2power15 - 1
+int	0	4 byte       - 2power31 - 1
+long	0L	8 byte
+float	0.0f	4 byte
+double	0.0d	8 byte
+
+
+
+public class DataTypes {
+	
+	 // Primitive data types
+	
+	  static boolean booleanType;
+	  static char charType;
+	  static byte byteType;
+	  static short shortType;
+	  static int intType;
+	  static long longType;
+	  static float floatType;
+	  static double doubleType;
+	
+	 public static void main(String[] args) {
+		 System.out.println(booleanType);
+		 System.out.println(charType);
+		 System.out.println(byteType);
+		 System.out.println(shortType);
+		 System.out.println(intType);
+		 System.out.println(longType);
+		 System.out.println(floatType);
+		 System.out.println(doubleType);
+		 System.out.println(Byte.MAX_VALUE);
+		 System.out.println(Byte.MIN_VALUE);
+		 System.out.println(Short.MAX_VALUE);
+		 System.out.println(Short.MIN_VALUE);
+		 System.out.println(Integer.MAX_VALUE);
+		 System.out.println(Long.MAX_VALUE);
+	}
+
+}
+
+
+2. non primitive / advanced types:
+
+ Classes and Interfaces can be considered as non primitive data types.
+
+  ex:  Customer customer = new Customer(); 
+
+   Customer customer; 
+
+   From above Customer can be called as Non primitive data type.
+
+     // Non Primitive types
+	  
+	    static String username; 
+	    static DataTypes dataTypes;
+	    
+
+Full Example:
+
+import java.util.ArrayList;
+
+public class DataTypes {
+	
+	 // Primitive data types
+	
+	  static boolean booleanType;
+	  static char charType;
+	  static byte byteType;
+	  static short shortType;
+	  static int intType;
+	  static long longType;
+	  static float floatType;
+	  static double doubleType;
+	  
+	  // Non Primitive types
+	  
+	    static String username; 
+	    static DataTypes dataTypes;
+	    
+	  
+	   
+
+	
+	   
+	 public static void main(String[] args) {
+		
+		 System.out.println(booleanType);
+		 System.out.println(charType);
+		 System.out.println(byteType);
+		 System.out.println(shortType);
+		 System.out.println(intType);
+		 System.out.println(longType);
+		 System.out.println(floatType);
+		 System.out.println(doubleType);
+		 System.out.println(Byte.MAX_VALUE);
+		 System.out.println(Byte.MIN_VALUE);
+		 System.out.println(Short.MAX_VALUE);
+		 System.out.println(Short.MIN_VALUE);
+		 System.out.println(Integer.MAX_VALUE);
+		 System.out.println(Long.MAX_VALUE);
+		 System.out.println(username);
+		 System.out.println(dataTypes);
+	}
+
+}
+
+Methods:
+
+A method is a block of code that takes an input (optional), process it 
+and provides some result. 
+
+syntax:
+   datatype nameOfMethod(parameters){
+       // code
+   }
+   nameOfMethod(arguments);
+
+   int square(int number){
+
+    return number * number;
+
+   }
+
+   square(10);
+
+There are 2 types of methods in Java. 
+
+1. static  
+2. non static
+
+
+
+public class MethodsDemo {
+	
+	     static byte a=100;
+	       short b=200;
+	   void nonStaticMethod() {
+		   System.out.println("Non Static Method");
+	   }
+	   void secondNonStaticMethod() {
+		   nonStaticMethod();
+		   staticMethod();
+		   System.out.println("second non static method");  
+		   System.out.println(MethodsDemo.a);
+		   System.out.println(b);
+	   }
+	   static void staticMethod() {
+		   System.out.println("Static method executed");   
+	   }
+	   static void secondStaticMethod() {
+		   System.out.println(MethodsDemo.a);
+		   System.out.println(new MethodsDemo().b);
+	   }
+	
+	public static void main(String[] args) {
+		 
+//		     MethodsDemo.staticMethod();
+		     MethodsDemo demo  = new MethodsDemo();
+//		     demo.nonStaticMethod();
+		demo.secondNonStaticMethod();
+		     
+		     MethodsDemo.secondStaticMethod();	     
+		
+	}
+}
+
+
+
+another example:
+
+
+
+public class MethodsDemo {
+	
+	     static byte a=100;
+	       short b=200;
+	   void nonStaticMethod() {
+		   System.out.println("Non Static Method");
+	   }
+	   void secondNonStaticMethod() {
+		   nonStaticMethod();
+		   staticMethod();
+		   System.out.println("second non static method");  
+		   System.out.println(MethodsDemo.a);
+		   System.out.println(a);
+		   System.out.println(b);
+	   }
+	   static void staticMethod() {
+		   System.out.println("Static method executed");   
+	   }
+	   static void secondStaticMethod() {
+		   System.out.println(MethodsDemo.a);
+		   System.out.println(new MethodsDemo().b);
+	   }
+	
+	public static void main(String[] args) {
+		 
+//		     MethodsDemo.staticMethod();
+		     MethodsDemo demo  = new MethodsDemo();
+//		     demo.nonStaticMethod();
+		demo.secondNonStaticMethod();
+		     
+		     MethodsDemo.secondStaticMethod();
+		     
+		
+	}
+
+}
+
