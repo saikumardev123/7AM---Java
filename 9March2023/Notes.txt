@@ -1,0 +1,183 @@
+Control Statements:
+
+sequential : if, if-else and switch
+iterative : while, do-while and for
+jump: continue, return, break
+
+
+sequential : if, if-else and switch
+
+if-else:
+
+syntax:
+
+if(test-condition){
+     // code
+}
+else{
+    // code
+}
+
+
+import java.util.Scanner;
+
+public class Sequential {
+	
+	 public static void main(String[] args) {
+		
+	    Scanner sc= new Scanner(System.in);
+	    
+	    System.out.println("Enter username");
+	    
+	     String username =  sc.next();
+	     
+	     System.out.println("Enter password");
+	     
+	     String password = sc.next(); 
+	    
+	     System.out.println(username + "\t" + password);
+	     
+	      if(username.contentEquals("digitallync") && password.contentEquals("digitallync@123")) {
+	    	  System.out.println("login success");
+	      }
+	      else {
+	    	  System.out.println("login failure");
+	      }
+	     
+	     sc.close();
+		 
+	}
+
+}
+
+switch:
+
+if we have more than two conditions, then we can use switch. 
+
+syntax:
+
+switch(test-condition){
+
+    case case_value1 :  // code 
+    case case_value2 :   //code 
+    case case_value3:  //code 
+    .
+    .
+    .
+    default:  // code
+}
+
+String choice= "java";
+	   switch(choice) {
+	   case  "java": System.out.println("You chose java"); break;
+	   case  "dotnet": System.out.println("You chose dotnet"); break;
+	   case  "react": System.out.println("You chose react"); break;
+	   case  "angular": System.out.println("You chose angular"); break;
+	   default : System.out.println("wrong choice");
+
+       }
+
+
+We can have numbers, string, characters as choices in a switch case. 
+
+Iterative Statements:
+
+while: 
+
+syntax:
+
+ while(test-condition){
+
+    // code
+
+ }
+
+ we use while to iterate a list of items (array). 
+
+int index = 0;
+		while(index < 10) {
+			System.out.println(index);
+			index++;
+}
+
+
+String[] users= {"user1","user2","user3","user4","user5"};
+		int index= 0;	
+		 while(index < users.length) {
+			  System.out.println(users[index]);
+			  index++;
+		 }
+
+
+
+class Product{
+	 int productId;
+	 String name;
+	 long price;
+	 String seller;
+}
+
+public class IterativeStatements {
+	
+	public static void main(String[] args) {
+		
+		Product product1 = new Product();
+		product1.productId = 101; product1.name="product 1"; product1.price=9000; product1.seller="seller 1";
+		Product product2 = new Product();
+		product2.productId = 102; product2.name="product 2"; product2.price=2000; product2.seller="seller 2";
+		Product product3 = new Product();
+		product3.productId = 103; product3.name="product 3"; product3.price=3000; product3.seller="seller 3";
+		Product product4 = new Product();
+		product4.productId = 104; product4.name="product 4"; product4.price=6000; product4.seller="seller 2";
+		
+		 Product[] products = {product1, product2,product3, product4};
+		 
+		  int index  = 0;
+		  
+		  while(index < products.length) {
+			  
+			  Product product = products[index]; 
+			  System.out.println(product.productId + "\t"+product.name + "\t"+ product.price+"\t"+ product.seller);
+		
+			   index++;
+		  
+		  }
+		 
+		 
+		
+	}
+}
+
+
+
+do-while: 
+
+if we want some block to be executed once irrespective of test condition, 
+then we can choose do-while. 
+
+do{
+
+// code
+
+}while(test-condition)
+
+
+
+listof items (100000):  API call (2 minutes) - 28 seconds
+
+split of data into equal parts : 1000 items ( 5 seconds )
+
+
+ int allItemsSize = items.length; // 10000
+
+do {
+
+    // API call - returns first 1000 items along with the items size (10000)
+     
+      // 2000 
+
+      int currentCount = 10000;
+}
+while(currentCount < allItemsSize)
+
+
