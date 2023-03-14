@@ -1,0 +1,103 @@
+For loop:
+
+syntax: 
+
+
+for(initialization;test-condition; inc / dec){
+
+}
+
+for loop is an enhancement of while loop. 
+
+public class ForLoopDemo {
+	public static void main(String[] args) {
+		String users[]= {"user1","user2","user3","user4","user5"};
+		 for(int index = 0; index < users.length; index++) {
+			 System.out.println(users[index]); 
+		 }
+		 
+	}
+}
+
+
+Jump Statements:
+
+break:  to terminate a block of code, we can use break statement. 
+
+continue: If we want to skip an iteration, then we can use continue. 
+
+
+public class ForLoopDemo {
+	public static void main(String[] args) {
+		String users[]= {"user1","user2","user3","user4","user5"};
+		 for(int index = 0; index < users.length; index++) {
+			 if(users[index].contentEquals("user3")) {
+				 continue;
+			 }
+			 System.out.println(users[index]); 
+		 }
+		 
+	}
+}
+
+Difference between break and continue:
+
+break is used to terminate a block of code 
+continue is used to skip a specific iteration 
+
+return:
+
+There are some functions / methods that act as helper methods which always 
+return result of some operation.
+
+so we use return from that helper method /function. 
+
+import java.io.ObjectInputStream.GetField;
+import java.util.Scanner;
+
+public class JumpStatements {
+	 // helper methods
+	 static boolean authenticateUser(String username, String password) {
+		 if(username.contentEquals("digitallync") && password.contentEquals("digitallync")) {
+			   return true;
+		 }
+		 else {
+			 return false;
+		 }
+	 }
+	 
+	 static int generateOtp(boolean isUserLoggedIn) {
+		 int otp = 0;
+		 if(isUserLoggedIn) {
+			 // code to generate OTP;
+			otp = 1234;
+		 }
+		 return otp;
+	 }
+	
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter username");
+		String username = sc.next();
+		System.out.println("Enter password");
+		String password = sc.next(); 
+		boolean result=authenticateUser(username, password);
+		if(result) {
+			System.out.println("user logged in successfully!!");
+		}
+		else {
+			System.out.println("username/ password incorrect!");
+		}
+		
+	      System.out.println(generateOtp(true));
+		
+	}
+
+}
+
+
+
+
+
+
+
