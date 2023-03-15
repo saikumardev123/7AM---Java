@@ -1,0 +1,120 @@
+Operators:
+
+An Operator is a special symbol that provides some functionality. 
+
+example:   + 
+
+10 + 20  = 30 
+
++ operator performs addition of two numbers. 
+
+"hello" + "world" = hello world 
+
++ operator performs concatenation of two strings. 
+
+
+Arithmetic Operators:
+
++,-,*,/(quotient),%(reminder)
+
+
+public class Arithmetic {
+	
+	public static void main(String[] args) {
+		String str="100";
+		int a=10;
+		System.out.println(str + 100); // 100100
+		System.out.println(str + 100 + 10); 
+		System.out.println(a + 100 + str); // 110100
+	}
+
+}
+
+unary operators:
+
+ ++ (increment), -- (decrement)
+
+ if we use ++ before a variable, it is called pre increment 
+ if we use ++ after a variable, it is called post increment 
+ if we use -- before a variable, it is called pre decrement 
+ if we use -- after a variable, it is called post decrement 
+
+
+
+public class Unary {
+
+	public static void main(String[] args) {
+		int a=100; 
+		System.out.println(a++); // prints 100, a=101
+		System.out.println(++a); // a=102, prints 102
+		System.out.println(--a); // a=101, prints 101
+		System.out.println(a--); //prints 101 and a=100
+		System.out.println(a); //100
+	}
+}
+
+
+
+public class Unary {
+
+	public static void main(String[] args) {
+		int a=100; 
+		   ++a;
+		System.out.println(a);  // 101
+		a++;
+		System.out.println(a);  // 102
+		--a;
+		System.out.println(a);  // 101
+		a--;
+		System.out.println(a);  // 100
+		a++;
+		System.out.println(a);  // 101
+		//logger - log
+	}
+}
+
+Comparision / Relational:
+
+>, <,>=,<=, !=, ==
+
+
+class Customer{
+	
+	int id;
+	String name;
+}
+
+
+public class Comparision {
+
+	
+	public static void main(String[] args) {
+		  int a=100;
+		  int b=200;
+		  String c="100";
+		  Comparision c1= new Comparision(); // addr -> x1
+		  Comparision c2 = new Comparision(); // addr -> x2
+		  Comparision c3 = c2;
+		  
+		  System.out.println(a==b);
+		  System.out.println(a>b);
+		  System.out.println(a<b);
+		  System.out.println(c1);
+		  System.out.println(c2);
+		  System.out.println(c1 == c2); // false
+		  System.out.println(c2 == c3); // 
+		  
+		  Customer customer1= new Customer();
+		  customer1.id=101;
+		  Customer customer2= new Customer();
+		  customer2.id=101;
+		  System.out.println(customer1 == customer2);
+		  System.out.println(customer1.id == customer2.id);
+		  System.out.println(customer1.id != customer2.id);
+	}
+}
+
+
+
+
+
