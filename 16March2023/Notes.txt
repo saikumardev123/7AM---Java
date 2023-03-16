@@ -1,0 +1,209 @@
+Object Oriented Programming:
+
+If a Programming language is object oriented, then the following features 
+are applicable. 
+
+1. inheritance 
+2. polymorphism 
+3. abstraction 
+4. encapsulation
+
+Constructors:
+
+A Constructor is a special method that constructs an object. 
+While the object is being constructed, the constructor gets invoked. 
+without creation of a constructor, we cannot create object.
+
+The constructor name is same as classname.
+
+syntax:
+
+   nameoftheclass(){
+       //code
+   }
+
+if there is no constructor in the class, then a default constructor is 
+provided. 
+
+
+class Customer {
+	 int cid;
+	 String name;
+	 long accountBalance;
+
+}
+
+public class ConstructorDemo {
+	
+	public static void main(String[] args) {
+		
+		   Customer customer = new Customer(); // calling default constructor
+		   System.out.println(customer.cid);
+		   
+		
+	}
+
+}
+
+We can use constructors to initialize the data for the instance variables at 
+runtime. 
+
+
+class Customer {
+	 int cid;
+	 String name;
+	 long accountBalance;
+	 
+	 // parameterized constructor
+	  public Customer(int cid, String name, long accountBalance) {
+		
+		   this.cid = cid;
+		   this.name= name;
+		   this.accountBalance = accountBalance;
+	}
+
+}
+
+public class ConstructorDemo {
+	
+	public static void main(String[] args) {
+		
+		   Customer customer = new Customer(101, "kiran",909999l); // calling default constructor
+		   
+		   System.out.println(customer.cid + "\t" + customer.name+"\t"+ customer.accountBalance);
+		  
+		   
+		
+	}
+
+}
+
+this: is a keyword which refers to currently executing object. 
+
+
+class Customer {
+	 int cid;
+	 String name;
+	 long accountBalance;
+	 // parameterized constructor
+	  public Customer(int id, String name, long accountBalance) {
+		
+		    this.cid = id;
+		    this.name = name;
+		    this.accountBalance = accountBalance;
+		  
+	}
+
+}
+
+public class ConstructorDemo {
+	
+	public static void main(String[] args) {
+		
+		   Customer customer1 = new Customer(101, "kiran",909999l); // cid, name, accountBalance
+		   Customer customer2 = new Customer(102, "ravi",909l); // cid, name, accountBalance
+		   Customer customer3 = new Customer(103, "anil",11909l); // cid, name, accountBalance
+		   
+		   System.out.println(customer1.cid + "\t" + customer1.name+"\t"+ customer1.accountBalance);
+		   System.out.println(customer2.cid + "\t" + customer2.name+"\t"+ customer2.accountBalance);
+		  
+		   
+		
+	}
+
+}
+
+
+Constructor Overloading:
+
+In a class, if we want a constructor to provide multiple functionalities then 
+we recreate the construcor using constructor Overloading. 
+
+In Constructor Overloading, The following rules are applied. 
+
+1. there should be a difference in number of arguments. 
+2. there should be a difference in type of arguments.
+
+
+class Customer {
+	 int cid;
+	 String name;
+	 long accountBalance;
+	 String idProof;
+	 String incomeProof; 
+	 String dobCertificate;
+	 
+	 // parameterized constructor
+	  public Customer(int id, String name, long accountBalance,String idProof, String incomeProof,String dobCertificate) {
+		
+		    this.cid = id;
+		    this.name = name;
+		    this.accountBalance = accountBalance;
+		  
+	}
+	  
+	// overloaded constructor
+		  public Customer(int id, String name, long accountBalance,String idProof) {
+			
+			    this.cid = id;
+			    this.name = name;
+			    this.accountBalance = accountBalance;
+			    this.idProof = idProof;
+			  
+		}
+}
+public class ConstructorDemo {
+	
+	public static void main(String[] args) {
+		
+	       Customer customer = new Customer(101,"xyz",90900L,"adhaar");   
+	       Customer customer2 = new Customer(102, "jsbdc",888l,"adhaar","someincomeproof","dob ceritificate");
+	       
+		   
+		
+	}
+
+}
+
+Inheritance:
+
+Inheritance is the process where a class extends another class to reuse 
+the resources (variables, functions etc). 
+
+
+class Bank{
+	
+	 String bankName = "ICICI";
+	 String branch = "Madhapur";
+}
+
+class Customer extends Bank { // Customer -> sub class , Bank -> super class
+	  int cid;
+	  String name;
+	 
+	 
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.cid + "\t"+ this.name + "\t"+ this.bankName+"\t"+ this.branch;
+	}
+}
+
+
+public class InheritanceDemo {
+	
+	public static void main(String[] args) {
+		
+		Customer customer = new Customer();
+		customer.cid=101;
+		customer.name="kiran";
+		System.out.println(customer);
+		
+		Customer customer2 = new Customer();
+		customer2.cid=102;
+		customer2.name="rajesh";
+		System.out.println(customer2);
+				
+		
+	}
+
+}
