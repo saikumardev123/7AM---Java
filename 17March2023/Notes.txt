@@ -1,0 +1,193 @@
+Types of Inheritance:
+
+We have the following types of Inheritance.
+
+1. Single :
+
+class A{
+
+}
+class B extends A{
+
+}
+
+B is sub class and A is super class.
+
+Sub class can access the properties / resources of its own class and super class. 
+
+super class can access only its properties / resources which means The super class cannot access sub class 
+properties. 
+
+
+class Parent{
+	
+	int a=100;
+	int b=200;
+	
+}
+
+class Child extends Parent {
+	
+	int c=300;
+	int d=400;
+	
+}
+
+
+public class SingleInheritanceDemo {
+	
+	public static void main(String[] args) {
+		
+		Child child = new Child();
+		System.out.println(child.c+"\t"+ child.d + "\t"+ child.a +"\t"+ child.b);
+		
+		 Parent parent = new Parent();
+		 
+		 System.out.println(parent.a);
+		
+	}
+
+}
+
+
+2. Multiple :
+
+class A{
+
+}
+class B{
+
+}
+class C{
+
+}
+class D extends A,B,C{ // Multiple Inheritance
+
+}
+
+Java does not support multiple Inheritance.
+
+class A{
+   int a=100;
+}
+class B{
+ int a=300;
+}
+class C extends A,B{
+  syso(a); // 
+}
+
+From the above, class C cannot decide on which a to be called, hence the ambiquity occurs.
+
+To aviod any kind of ambiquities, Java does not support multiple Inheritance.
+
+3. hierarchical :
+
+hierarchical Inheritance is opposite of multiple Inheritance.
+
+ class A{
+
+ }
+ class B extends A{
+
+ }
+ class C extends A{
+
+ }
+ class D extends A{
+
+ }
+
+
+4. multilevel: In multilevel, A sub class can become a super class and go to the levels.
+
+class A{
+
+}
+class B extends A{
+
+}
+class C extends B{
+
+}
+class D extends C{
+
+}
+
+5. hybrid:
+
+Any combination of 2 Inheritances is known as hybrid Inheritance.
+
+In hybrid Inheritance, the multiple Inheritance is not considered.
+
+
+
+Constructor cannot be Inherited however, super() keyword always calls 
+the super class constructor.
+
+
+
+
+
+class A{
+	
+	A(){
+		System.out.println("Constructor A() called");
+	}
+	
+}
+class B extends A{
+
+	B(){
+		super();
+		System.out.println("Costructor B() called");
+	}
+	
+}
+
+
+public class ConstructorInheritance {
+
+	public static void main(String[] args) {
+		 B b= new B();
+	}
+	
+}
+
+
+
+
+
+class Bank{	
+	String bankName;
+	String branch;
+	Bank(String bankName, String branch){
+		
+		this.bankName = bankName;
+		this.branch = branch;
+	}
+}
+
+class Customer extends Bank{
+	
+	  String name;
+	  String accId;
+	  public Customer(String name, String accId, String bankName, String branch) {
+		// TODO Auto-generated constructor stub
+		  super(bankName,branch);
+		  this.name= name;
+		  this.accId = accId;
+	}
+	
+}
+
+public class ConstructorInheritance {
+
+	public static void main(String[] args) {
+		
+		Customer customer = new Customer("kiran","12344","hdfc","hitech city");
+		System.out.println(customer.bankName + "\t"+ customer.name);
+		
+	}
+	
+}
