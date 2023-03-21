@@ -1,0 +1,203 @@
+Abstraction:
+
+Abstraction is the process of providing necessary /relevant details. 
+Abstraction is the process of providing the functionality without 
+exposing the inner details.
+
+Abstraction can be implemented using abstract classes and 
+interfaces.
+
+Abstraction provides loosely coupling of implementation.
+
+interfaces:
+
+An interface is a collection of unimplemented methods.
+
+interface interface_name{
+ // methods
+}
+
+
+interface A{
+	void m1();
+	void m2();
+	void m3();
+}
+
+class Aimpl implements A{
+	
+	public void m1() {
+		
+		System.out.println("m1()");
+		
+	}
+	public void m2() {
+	
+		System.out.println("m2()");
+	}
+	public void m3() {
+		
+		System.out.println("m3()");
+	}
+	
+}
+public class InterfacesDemo {
+	
+	public static void main(String[] args) {
+		
+		A aa= new Aimpl();
+		aa.m1();
+		aa.m2();
+		aa.m3();
+		
+	}
+
+}
+
+
+Key Points:
+
+1. An interface can have only abstract methods and public static final 
+variables. 
+2. In Java 8, they introduced default methods, using which we can provide implementation for the methods. 
+3. If a class implements an interface, then it should provide the implementation for all the methods of 
+the interface. 
+4. Since interface has only abstract methods, creation of an object from interfaces is not possible. '
+5. A class can implement more than one interface using implements keyword. 
+6. If a class wish not to implement all the methods of an interface, then it can be self declared as 
+abstract class. 
+
+Problem Statement: 
+
+Implement abstraction for AC Remote. 
+
+
+
+interface Panel{
+	void turnOnOff();
+	void increaseTemp();
+	void decreaseTemp();
+	void swingOnOff();
+}
+
+class VendorOneMotherboard implements Panel{
+	  boolean currentStatus= false;
+	   int minTemp = 16;
+	   int maxTemp =32;
+	    int currentTemp = 28;
+	@Override
+	public void turnOnOff() {
+		
+		  if(currentStatus ==false) {
+			  System.out.println("AC Turned On");
+			  currentStatus = true;
+		  }
+		  else {
+			  System.out.println("AC Turned OFF");
+			  currentStatus = false;
+		  }
+	}
+	@Override
+	public void increaseTemp() {
+		// TODO Auto-generated method stub
+		
+		if(currentStatus == true) {
+			if(currentTemp < maxTemp) {
+				currentTemp++;
+				System.out.println(currentTemp);
+			}
+			else {
+				System.out.println("Max Temp Reached");
+			}
+		}
+		else {
+			System.out.println("turn on the AC First");
+		}
+		
+		
+	}
+	@Override
+	public void decreaseTemp() {
+		
+		if(currentStatus == true) {
+			if(currentTemp < maxTemp && currentTemp > minTemp) { 
+				currentTemp--;
+				System.out.println(currentTemp);
+			}
+			else {
+				System.out.println("Min Temp Reached");
+			}
+		}
+		else {
+			System.out.println("turn on the AC First");
+		}
+		
+		
+	}
+	@Override
+	public void swingOnOff() {
+		// TODO Auto-generated method stub
+		
+	}	
+}
+
+class VendorTwoMotherBoard implements Panel{
+
+	@Override
+	public void turnOnOff() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void increaseTemp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void decreaseTemp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void swingOnOff() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+public class RemoteDemo {
+	
+	public static void main(String[] args) {
+		Panel panel = new VendorOneMotherboard();
+		panel.turnOnOff();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        panel.decreaseTemp();
+        
+	}
+
+}
+
+
+
+
+
+
+
+
+
