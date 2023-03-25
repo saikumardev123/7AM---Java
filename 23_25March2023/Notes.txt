@@ -1,0 +1,281 @@
+Abstract classes:
+
+When a class does not provide implementation for all the methods of 
+an interface, then that class must be declared as abstract class. 
+
+
+interface A1{
+	 void m1();
+	 void m2();
+	 void m3();
+}
+
+abstract class A1Impl implements A1{
+	public void m1() {
+		System.out.println("m1()");
+	}
+	public void m2() {
+		System.out.println("m2()");
+	}
+	
+	public abstract void m3();
+}
+
+class A1ImplChild extends A1Impl{
+	public  void m3() {
+		
+		System.out.println("m3()");
+	}
+}
+
+public class AbstractClassesDemo {
+	public static void main(String[] args) {
+		A1 a = new A1ImplChild();
+		a.m1();
+		a.m2();
+		a.m3();
+	}
+
+}
+
+
+
+Composition / Aggregation( has- a):
+
+* Inheritance follows is-a relationship. 
+
+
+class A{
+
+}
+class B extends A{
+
+}
+
+A is a part of B ->  is-a relationship. 
+
+class Engine{
+
+}
+class Tyres{
+
+}
+class Vehicle extends Engine,Tyres{
+
+
+}
+
+
+The above can be represented using composition / aggregation. 
+
+class Engine{
+
+}
+
+class Tyres{
+
+}
+class AudioSystem{
+
+}
+
+class Vehicle{
+      Engine e1;
+      Tyres t1;
+      AudioSystem audio;
+}
+
+Vehicle (has a) engine, tyres, audisystem.
+
+Encapsulation:
+
+Encapsulation is the process of binding the data and its related code 
+into a single unit. 
+
+To represent an entity, provide relationships across the entities, 
+provide security , we use Encapsulation. 
+
+without Encapsulation, we cannot achieve Inheritance, polymorphism and 
+abstraction. 
+
+Best example for encapsulation is class.
+
+class Product{
+     String name;
+     int pid;
+     int price;
+     String getProductDetails(){
+            // logic - data processing
+         return "some data";
+
+     }
+}
+
+Securing the code using encapsulation is possible through access specifiers. 
+
+we can use private keyword to specify an access specifier to restrict 
+the resource(variable, method) to be accessed with in the class. 
+
+Problem Statement:
+Implement a simple banking system app with the following features. 
+objects: bank -> customer
+1. creating customers
+2. updating the customer information 
+3. transfer of funds from one account to another account. 
+
+solution: 
+
+
+public class Bank {
+	
+	  String nameOfTheBank;
+	  String branch;
+	  String ifscCode;
+	public Bank(String nameOfTheBank, String branch, String ifscCode) {
+		super();
+		this.nameOfTheBank = nameOfTheBank;
+		this.branch = branch;
+		this.ifscCode = ifscCode;
+	}
+}
+
+
+
+public class Customer extends Bank{
+	public String customerId;
+	public String name;
+	public String address;
+	public long accountNumber;
+	public long accountBalance;
+	public String accountType;
+	public Customer(String customerId, String name, String address, long accountNumber, long accountBalance,String nameOfTheBank, String branch, String ifscCode,String accType) {
+		super(nameOfTheBank,branch,ifscCode);
+		this.customerId = customerId;
+		this.name = name;
+		this.address = address;
+		this.accountNumber = accountNumber;
+		this.accountBalance = accountBalance;
+		this.accountType = accType;
+	}
+	
+	 void fundTransfer(Customer recieverAccount, long amount) {
+		  if(recieverAccount == null) {
+			  System.out.println("reciever account is invalid");
+			  return;
+		  }
+		  if(amount <= 0) {
+			  System.out.println("Amount cannot be 0 or less than 0");
+			  return;
+		  }
+		  if(amount > this.accountBalance) {
+			   System.out.println("enter amount is greater than your balance");
+			   return;
+		  }
+		 this.accountBalance = this.accountBalance - amount; 
+		 recieverAccount.accountBalance = recieverAccount.accountBalance + amount;
+	 }
+	 
+	 void updateAccount() {
+		 
+		 //logic
+	 }
+	
+}
+
+
+
+public class Client {
+	
+	public static void main(String[] args) {
+		Customer account1 = new Customer("IC101", "Kiran", "Hyderabad", 90111111, 10000, "ICICI", "hitech city", "ICICI12344","Savings");
+		Customer account3 = new Customer("IC101", "Kiran", "Hyderabad", 90111113, 10000, "ICICI", "hitech city", "ICICI12344","Current");
+		Customer account2 = new Customer("HDFC102", "Kiran", "Hyderabad", 45320113, 30000, "HDFC", "Madhapur", "HDFC103455","Savings");
+		Customer account4 = new Customer("HDFC105", "Rahul", "Hyderabad", 4555320113L, 50000, "HDFC", "Madhapur", "HDFC103455","Savings");
+		
+		 account1.fundTransfer(account3, 9000);
+		 System.out.println(account1.accountBalance);
+		 System.out.println(account3.accountBalance);
+		 account3.fundTransfer(account4, 10000);
+		 System.out.println(account3.accountBalance);
+		 System.out.println(account4.accountBalance);
+		 
+		
+	}
+
+}
+
+String:
+
+String is a collection of characters enclosed in double quotes. 
+
+
+public class StringsDemo {
+	public static void main(String[] args) {
+		String firstName = new String("digital");
+		String lastName = new String("lync");
+		String company = "Digital Lync Technologies";
+		firstName.concat(lastName);
+		System.out.println(firstName);
+	}
+}
+
+
+In Java, Strings are immutable which means once a String is 
+created, it cannot be modified, incase if we want to have a new 
+value for String variables, then we need to reassign it.
+
+
+public class StringsDemo {
+	public static void main(String[] args) {
+		String firstName = new String("digital");
+		String lastName = new String("lync");
+		String company = "Digital Lync Technologies";
+		firstName = firstName.concat(lastName);
+		System.out.println(firstName);
+	}
+}
+
+
+
+Problem Statement:
+
+Find the occurance of a character from the string. 
+
+String str= "hello how are you doing";
+
+l - 2
+
+Hint: use for loop
+
+
+public class StringsDemo {
+	public static void main(String[] args) {
+		
+             String str= "hello how are you doing";
+             int counter = 0;
+             for(int index = 0; index < str.length(); index++) {
+            	  if(str.charAt(index) == 'o') {
+            		  counter++;
+            	  }
+             }
+             System.out.println(counter);
+	}
+}
+
+
+Problem Statement:
+
+Find the occurance of each character from the string. 
+
+String str= "hello how are you doing";
+
+
+h 
+
+e 
+
+l
+
+
+
+
