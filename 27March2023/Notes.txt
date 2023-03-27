@@ -1,0 +1,118 @@
+Memory Management: 
+
+Where does the objects stored in Java?
+
+Heap Area of JVM 
+
+
+public class StrngsMemory {
+
+	
+	public static void main(String[] args) {
+		
+		
+		String s1= new String("DigitalLync"); // Heap Area
+		String s2= new String("DigitalLync"); // Heap Area
+		String s3= new String("DigitalLync"); // Heap Area	
+		System.out.println(s1.contentEquals(s2));
+		
+		/*
+		 * 
+		 *    Memory Allocation for above Strings (heap area).
+		 * 
+		 *   s1 -> 101x -> "DigitalLync"
+		 *   s2 -> 102x->  "DigitalLync"
+		 *   s3 -> 103x  -> "DigitalLync"
+		 * 
+		 * 
+		 */
+		
+	     String s4="DigitalLync"; // String Constant Pool
+	     String s5 = "DigitalLync"; // String Constant Pool
+	     String s6= "DigitalLync"; // String Constant Pool
+	     String s7= "DigitalLync Tech"; // String Constant Pool
+	     String s8 = "DigitalLync Tech"; // String Constant Pool
+	     
+	     /*
+	      * Memory allocation for above Strings ( SCP)
+	      * 
+	      *      s4 -> 109x  -> "DigitalLync"
+	      *      
+	      *      s5 -> 109X
+	      *      
+	      *      s6 -> 109x
+	      *      
+	      *      s7 -> 110x -> "DigitalLync Tech"
+	      *      
+	      *      s8 -> 110x
+	      * 
+	      * 
+	      */
+	     
+	     System.out.println(s4 == s5);
+	     System.out.println(s5 == s6);
+	     System.out.println(s4 ==s6);
+	     System.out.println(s8 == s7);
+	     
+	     String s9 = "hello";
+	     String s10 = "hello";
+	     
+	     /*
+	      *   s9  -> 111x -> "hello"
+	      *   s10 ->111x
+	      */
+	     
+	     System.out.println(s9 == s10);
+	     s9 = s9.concat("world"); 
+	     
+	     
+	     /*
+	      *   s9  -> 111x -> "helloworld"
+	      *   s10 ->112x -> "hello"
+	      */
+	     
+	     System.out.println(s9 == s10); //
+	     System.out.println(s9);
+	     System.out.println(s10);
+	     s10 = s10.concat("world");
+	     
+            String s11= "helloworld";
+            String s12= "helloworld";
+            System.out.println(s11);
+            System.out.println(s9);
+            System.out.println(s11 == s9); // false
+            System.out.println(s11 == s12); // true
+            System.out.println(s10);
+            System.out.println(s9);
+            System.out.println(s10 == s9); // 
+          //  System.out.println(s10 == s9);
+//            String s13= "helloeveryoone";
+//            System.out.println(s13 == s10);            
+
+	}
+	
+}
+
+StringBuffer: StringBuffer is a mutable String Object.
+
+If we want the modifyable strings, then we can use StringBuffer. 
+
+
+public class StringBufferDemo {
+
+	public static void main(String[] args) {
+	
+		 StringBuffer str=new StringBuffer("hello");
+		 System.out.println(str);
+		 str.append("world");
+		 System.out.println(str);
+		 
+		 
+		 StringBuilder str2=new StringBuilder("hello");
+		 System.out.println(str2);
+		 str2.append("world");
+		 System.out.println(str2);
+	}
+	
+}
+

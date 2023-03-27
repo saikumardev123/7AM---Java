@@ -271,10 +271,10 @@ String str= "hello how are you doing";
 
 
 h 
-
 e 
-
 l
+
+
 
 
 
