@@ -1,0 +1,68 @@
+Packages:
+
+A package is a collection of classes and interfaces. 
+
+We create packages to represent a module or a sub module. 
+
+
+project -> ecommerce 
+
+ user management, product management, order management 
+
+
+ package -> user management 
+
+
+ syntax: package  <package_name>
+
+
+ ex:  package com.tcs.ecommerce.user
+
+In case if we want to create libraries, accordingly the package names
+are given. 
+
+ex: java.sql, java.util.....
+
+All the packages will be stored in a jar(java archive) file. 
+
+Structure:  
+
+  JAR File 
+  packages
+
+  classes          interfaces
+
+
+Arrays:
+
+An array is a linear data structure which stores the data in a 
+sequential order. 
+
+In Java, we can store only similar type of data. 
+
+In Java, the arrays are static , once an array is created , we cannot 
+extend its size. 
+
+
+public class ArraysDemo {
+	
+	public static void main(String[] args) {
+		
+		int numArr[] = {10,20,30,40,50};
+		
+		numArr[2] =20;
+	
+		
+		for(int index = 0; index < numArr.length; index++) {
+			System.out.println(numArr[index]);
+		}
+	}
+}
+
+Problem Statement:
+
+Remove the duplicates from the array. 
+
+{10,10,2,2,3,3,3,3,3,3,4,5,10,2,34,12,33,4}
+
+
