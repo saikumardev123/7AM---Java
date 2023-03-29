@@ -1,0 +1,162 @@
+Drawbacks of Arrays:
+
+1. Arrays can store similar type of values. 
+
+2. Arrays are static which means once we create an array, we 
+cannot modify it. 
+
+3. Arrays does not have any built in functions because of which 
+the developer needs to write the code from scratch. 
+
+We can use ArrayList to overcome the above drawbacks.
+
+Exception Handling:
+
+Any error that occurs at runtime is known as exception. 
+
+whenever an exception occurs, the program terminates abnormally which means 
+the application gets crashed, hence no user will be able to access 
+the application. 
+
+It is the developer responsibility to write the code in such a way that 
+any exception occured should be handled. 
+
+Exception handling is not fixing the issues /errors. 
+
+Exception Handling is the process of skipping the line of code that 
+raises an error and execute the remaining lines of code.
+
+Using Exception Handling, we can catch the error and fix it later on. 
+
+There are 2 types of exceptions:
+
+1. checked exceptions 
+
+The compiler has the capability of checking the code that might raise 
+an error at runtime. 
+
+The compiler forces us to handle the exception before it occurs. 
+ex: FileNotFoundException, IOException...
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class CheckedExceptionDemo {
+	public static void main(String[] args) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		reader.readLine(); // che
+	}
+}
+
+
+From the above, reader.readLine() shows an error by compiler to handle 
+the exception. 
+
+The checked exceptions can be handled using throws keyword or using 
+try and catch.
+
+using try and catch:
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class CheckedExceptionDemo {
+	
+		
+	
+	public static void main(String[] args) {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		try {
+			reader.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // che
+	}
+
+}
+
+
+using throws:
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class CheckedExceptionDemo {
+	
+		
+	
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		reader.readLine(); // ch
+	}
+
+}
+
+2. unchecked exceptions:
+
+The exceptions that are not identified by the compiler and mostly the 
+exceptions occur at runtime due to logic of the application. 
+
+
+
+public class UncheckedExceptions {
+	public static void main(String[] args) {
+		  int arr[]= {1,2,3};
+		  System.out.println(arr[1]);
+		  try {
+			  System.out.println(arr[3]);
+		  }
+		  catch(ArrayIndexOutOfBoundsException exception) {
+			  System.out.println(exception);
+		  }
+		  System.out.println(arr[0] + arr[1]);
+		  System.out.println("done");
+		  
+		
+	}
+
+}
+
+
+combination of unchecked and checked exceptions:
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class UncheckedExceptions {
+	public static void main(String[] args) throws IOException  {
+		  
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+   System.out.println("Enter first value");
+		int firstValue = Integer.parseInt(reader.readLine());
+	System.out.println("Enter second value");
+	  int secondValue = Integer.parseInt(reader.readLine());
+	  try {
+		  int result =  firstValue/secondValue;
+		     System.out.println(result);
+	  }
+	  catch(Exception exception) {
+		  
+		  System.out.println(exception);
+		  // add the log and store the error information.
+		  
+	  }
+	     
+	     System.out.println("some other operations");
+	}
+}
+
+
+Find out some more usecases of exceptions. 
+
+
+
