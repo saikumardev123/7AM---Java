@@ -1,0 +1,110 @@
+Exception Handling Hierarchy:
+
+*  Throwable is the super class of all exceptions.
+
+* Throwable class has 2 sub classes. 
+
+ 1.Exception 
+ 2. Error 
+
+ Any error that occurs unders Exception can be handled . However, any 
+ exception that occurs under Error class cannot be handled because 
+ these type errors cannot / may not be fixed through code. 
+
+ try,catch, finally:
+
+try syntax:
+
+  try{
+      // block of code
+  }
+
+  Any  risky code that might raise an exception should be kept inside 
+  the try block. Whenever an exception occurs in try block, the control 
+  looks for catch block. 
+
+  When an exception occurs in try block, the control immediately 
+  jumps to catch block. 
+
+  syntax:
+
+  catch(TypeOfException referenceVariable){
+     // log the exception 
+     // any alternative operation
+  }
+
+ catch block should always follow try block and Java does not allow 
+ only catch block or try block. it should be  a combination of both. 
+
+ try{
+     // code
+ }
+ catch(TypeOfException referenceVariable){
+     // code
+ }
+Sometimes there could be an error in catch block also or some code that 
+is not a part of try block, so there could be some mandatory statements 
+need to be executed. So those statements will be put inside finally 
+block.
+finally block will be executed irrespective of whether an exception 
+occured or not. 
+
+
+public class TryCatchFinallyDemo {
+	
+	 public static void main(String[] args) {
+		 int arr[] = {1,2};
+		  try {
+			  System.out.println("Opening DB Connection");
+			  System.out.println(arr[4]);
+		  }
+		  catch(Exception exception) {
+			  System.out.println(exception);
+			  // error Simulation 
+			  //System.out.println(arr[9]);
+		  }
+		  finally {
+			  System.out.println("Closing DB Connection");
+		  }
+		 
+		  System.out.println(arr[1]);
+		  System.out.println(arr[0]);
+		  
+		 
+	}
+
+}
+
+Creating own Exceptions: 
+
+
+class PasswordException extends RuntimeException{
+     public PasswordException(String errorMessage) {
+		// TODO Auto-generated constructor stub
+    	 super(errorMessage);
+	}
+}
+
+public class CustomExceptionDemo {
+	public static void main(String[] args) {	
+		 String password= "sjbkjs"; 
+		 
+		 try {
+		 if(password.length() < 8) {
+			 throw new PasswordException("Password should be atleast 8 chars");
+		 }
+		 }catch(PasswordException exception) {
+			 System.out.println(exception);
+		 }
+		 
+		 System.out.println("username check");
+		
+	}
+}
+
+
+
+
+
+
+       
