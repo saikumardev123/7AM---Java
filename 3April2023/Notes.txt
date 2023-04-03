@@ -1,0 +1,117 @@
+Regex:
+
+Regular Expressions are used to create search patterns. 
+
+java.util.regex package provides different types of classes and interfaces 
+to work with regular expressions.
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegExDemo {
+	public static void main(String[] args) {
+		Pattern pattern =  Pattern.compile("[A-Z][a-z][0-9]");
+		 System.out.println(pattern);
+		 Scanner sc = new Scanner(System.in);
+		 System.out.println("Enter your content");
+		 String content= sc.next();
+		 System.out.println(content);
+		Matcher match =  pattern.matcher(content);
+		boolean result = match.matches();
+		System.out.println(result);	
+	}
+}
+
+Other ways of implementing regular expressions.
+
+// 2nd way
+
+System.out.println(Pattern.compile("[A-Z][a-z][0-9]").matcher("AAa1").matches());
+		
+        //3rd way
+
+		boolean result = Pattern.matches("[A-Z][a-z][0-9]","AAa1");
+		
+		System.out.println(result);
+
+Regex Character classes:
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegExDemo {
+	public static void main(String[] args) {
+		// [abc]
+		//boolean result = Pattern.compile("[abc]xyz").matcher("axyz").matches();
+		//[^abc]
+		boolean result = Pattern.compile("[^abc][abc]xyz").matcher("1axyz123").matches();
+		
+		System.out.println(result);
+		
+		/*
+		 * 
+		 * 
+		 * No.	Character Class	Description
+1	[abc]	a, b, or c (simple class)
+2	[^abc]	Any character except a, b, or c (negation)
+3	[a-zA-Z]	a through z or A through Z, inclusive (range)
+4	[a-d[m-p]]	a through d, or m through p: [a-dm-p] (union)
+5	[a-z&&[def]]	d, e, or f (intersection)
+6	[a-z&&[^bc]]	a through z, except for b and c: [ad-z] (subtraction)
+7	[a-z&&[^m-p]]	a through z, and not m through p: [a-lq-z](subtraction)
+		 */
+	}
+}
+
+Regex Quantifiers:
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegExDemo {
+	public static void main(String[] args) {
+		
+		// Password - min 1 uppercase,min 1 lowercase 
+		
+		// n+ Quantifier - atleast one n. 
+//		boolean result = Pattern.compile("[A-Z]+[a-z]+").matcher("AAAAAGJDDHDJDHDHDHaaaa").matches();
+//		System.out.println(result);
+		
+//		// n* - zero or more occurances 
+//		
+//		boolean result = Pattern.compile("[A-Z]+[a-z]*").matcher("AA").matches();
+//		System.out.println(result);
+		
+		// n? - zero or one occurances 
+//				boolean result = Pattern.compile("[A-Z]?[a-z]").matcher("AAAa").matches();
+//				System.out.println(result);
+		
+//		// X{n} - fixing the number of char sequence - X{5} - Should have 5. 
+//		
+//		boolean result = Pattern.compile("[A-Z]{2}[a-z]").matcher("AAa").matches();
+//		System.out.println(result);
+//		
+//		// X{n,m} - fixing the number of char sequence between n and m - X{5,10} - Should have BETWEEN 5 and 10. 
+//				boolean result = Pattern.compile("[A-Z]{2,4}[a-z]").matcher("AAAAa").matches();
+//				System.out.println(result);
+				
+//		
+		
+	 // X{n,} - min 5 and maximum can be any
+				boolean result = Pattern.compile("[A-Z]{2,}[a-z]").matcher("AAAAAAAAAAAAAAa").matches();
+				System.out.println(result);
+		 
+		
+		
+	}
+}
+
+Task:
+
+ Implement the regular expression for the following requirement. 
+ Password should have atleast 1 upper case, 1 lower case, 1 digit,1 special 
+ character and the password must be atleast 8 chars. 
+
