@@ -1,0 +1,175 @@
+Inner classes:
+
+A class inside another class is known as Inner class. 
+
+The main reason to create an inner class is to combine one 
+bigger feature related classes into one unit. 
+
+If we want to make private classes, then we can use inner classes.
+
+Advantages:
+
+Making code clean and readable.
+Private methods of the outer class can be accessed, so bringing a new dimension and making it closer to the real world.
+Optimizing the code module.
+
+class Outer{
+
+        class Inner{
+                  
+
+        }
+
+}
+
+
+
+class Outer{
+	
+	static int a=10;
+	static int b=20; 
+	
+	 class Inner{
+		 
+		     void inner() {
+		    	 int c=30,d=40;
+		    	 System.out.println(a);
+		    	 System.out.println(b);
+		    	 System.out.println(c);
+		    	 System.out.println(d);
+		    	 
+		     }
+		 
+	 }
+}
+
+public class InnerClassDemo {
+	
+	public static void main(String[] args) {
+		Outer outer = new Outer(); 
+		Outer.Inner in = outer.new Inner();
+		in.inner();
+	}
+
+}
+
+
+private inner classes:
+
+
+class Outer{
+	
+	static int a=10;
+	static int b=20; 
+	
+	private class Inner{
+		 
+		     void inner() {
+		    	 int c=30,d=40;
+		    	 System.out.println(a);
+		    	 System.out.println(b);
+		    	 System.out.println(c);
+		    	 System.out.println(d);
+		    	 
+		     }	 
+	 }
+	void accessToInner() {
+		Inner in = new Inner();
+		in.inner();		
+	}
+}
+
+public class InnerClassDemo {
+	
+	public static void main(String[] args) {
+		
+		Outer outer =new Outer();
+		outer.accessToInner();
+		
+	}
+
+}
+
+Other type of Inner classes:
+
+Nested Inner Class
+Method Local Inner Classes
+Static Nested Classes
+Anonymous Inner Classes
+
+
+
+Importance of Processor:
+
+Whenever an application has to be opened, The processor 
+creates a process(using memory - RAM) and creates a processId(pid)
+for every application service. 
+
+As the RAM is about to occupy the max space, then the processor 
+cannot create more processes hence the applications wont be 
+able to run after the RAM is completely used. 
+
+1 App -> 1 Process -> Okay
+
+1 App -> Multi Tasking -> Multiple processes -> Out of Memory (RAM) -> Not Okay
+
+Creation / Removal of process is a costly operation which effects the RAM.
+
+
+IPC: Inter Process Communication. 
+
+
+Sometimes, to provide mutlitasking, One process (address-x) needs to communicate with other process(address-y), 
+The comminucation cost(memory) is expensive, hence multi tasking using IPC is a costly operation (achievable).
+
+
+1 PROCESS -> MUTIPLE SUB PROCESSES -> each sub process can be considered as thread. 
+
+
+A thread is a sub process of a process to execute some peice of code. 
+
+The main advantages of using threads, 
+
+1. thread is light weight which means it occupies very less memory. 
+2. creation and destroying of threads is not a costly operation. 
+3. IPC is a costly operation but ITC is less expensive because thread Communication requires very less memory because 
+all the threads will be under one process and comminucation becomes easy because all the threads will 
+refer to the same address of the process. 
+
+Multithreading is a Java feature that allows concurrent execution of two or more parts of a program for maximum utilization of CPU. Each part of such program is called a thread. So, threads are light-weight processes within a process.
+
+Threads can be created by using two mechanisms : 
+
+1.Extending the Thread class 
+2.Implementing the Runnable Interface
+
+
+1.Extending the Thread class:
+
+
+
+class MyThread extends Thread{
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+	}
+}
+
+
+public class ThreadClassDemo {
+
+	   public static void main(String[] args) {
+		
+		   MyThread thread1 = new MyThread();
+		   thread1.setName("Thread-One");
+		   thread1.start();
+		   
+		   MyThread thread2 = new MyThread();
+		   thread2.setName("Thread- Two");
+		   thread2.start();
+		   
+	}
+	
+}
+
+
