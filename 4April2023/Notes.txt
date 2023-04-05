@@ -146,8 +146,6 @@ Threads can be created by using two mechanisms :
 
 1.Extending the Thread class:
 
-
-
 class MyThread extends Thread{
 	@Override
 	public void run() {
@@ -173,3 +171,9 @@ public class ThreadClassDemo {
 }
 
 
+
+
+
+
+
+ 

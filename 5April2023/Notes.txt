@@ -1,0 +1,143 @@
+1.Extending the Thread class
+
+
+
+class MyThread extends Thread {
+	 @Override
+	public void run() {
+		 System.out.println(Thread.currentThread().getName());
+	}
+}
+
+
+
+public class ThreadClassDemo2 {
+
+	public static void main(String[] args) {
+		
+		MyThread t1= new MyThread();
+		
+		t1.start();
+		
+		
+MyThread t2= new MyThread();
+		
+		t2.start();
+		
+MyThread t3= new MyThread();
+		
+		t3.start();
+		
+//		System.out.println(t1.getState());
+//		
+//		t1.run();
+//		
+//		System.out.println(t1.getState());
+		System.out.println(Thread.currentThread().getName());
+		System.out.println(Thread.currentThread().getPriority());
+		System.out.println(Thread.MIN_PRIORITY);
+		System.out.println(Thread.MAX_PRIORITY);
+		System.out.println(Thread.currentThread().getThreadGroup().getName());
+		
+		System.out.println(Thread.activeCount());
+	
+		
+		
+	}
+	
+}
+
+
+2.Implementing the Runnable Interface:
+
+
+class CustomThread implements Runnable{
+
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+	}
+	
+}
+
+public class RunnableDemo {
+	
+	public static void main(String[] args) {
+		
+		 CustomThread customThread = new CustomThread();
+		
+		  Thread t1= new Thread(customThread);
+		  
+		  t1.start();
+		 
+		
+	}
+
+}
+
+
+Thread class Methods:
+
+
+
+class OwnThread extends Thread{
+	
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+	}
+	
+}
+
+public class ThreadClassMethods {
+	
+	public static void main(String[] args) {
+		
+	 OwnThread t1= new OwnThread();
+	 t1.setName("Thread - One");
+	 t1.setPriority(1);
+//	  System.out.println(t1.getState());
+//	  System.out.println(t1.getPriority());
+	 // t1.start(); // to start the thread
+	 OwnThread t2 = new OwnThread();
+	 t2.setName("Thread - Two");
+	 t2.setPriority(4);
+	 OwnThread t3 = new OwnThread();
+	 t3.setName("Thread - Three");
+	 t3.setPriority(3);
+	 t1.start();
+	 t2.start();
+	 t3.start();
+	}
+
+}
+
+Thread Life Cycle:
+
+
+ class T extends Thread{
+	 @Override
+	public void run() {
+		 System.out.println(Thread.currentThread().getName());
+		 try {
+			Thread.sleep(3000);
+			System.out.println(Thread.currentThread().getName()+"is executed");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+public class ThreadLifeCycle {
+	 public static void main(String[] args) {
+		      T t1= new T();
+		      T t2= new T();
+		      System.out.println("T1 before start:"+t1.getState());
+		      System.out.println("T2 before start:"+t2.getState());
+		      t1.start();
+		      t2.start();
+		      System.out.println("T1 after start:"+t1.getState());
+		      System.out.println("T2 after start:"+t2.getState());		      
+		 
+	}
+}
