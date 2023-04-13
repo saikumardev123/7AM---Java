@@ -1,0 +1,120 @@
+
+Files I/O:
+
+FileInputStream:  if follows byte stream
+
+FileInputStream is used to read the file data in the form of a stream (flow of data).
+
+FileInputStream fis= new FileInputStream("/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/FileIO/src/abc.txt");
+		int i=0; 
+		while((i=fis.read())!=-1) {
+			System.out.print((char)i);
+		}
+		fis.close();
+
+FileOutputStream: follows byte streams
+
+FileOutputStream is used to write the data to a file. 
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class WriteFileDemo {
+	public static void main(String[] args) throws IOException {
+		    FileOutputStream fos = new FileOutputStream("/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/FileIO/src/new.txt");
+		     String msg= "hello world!";
+		   // fos.write(65);
+		     byte[] data=  msg.getBytes();
+		     fos.write(data);
+		    System.out.println("done");
+		    fos.close();		
+	}
+}
+Note: Explore more classes such as BufferedOutputStream, BufferedInputStream, Sequence.....
+
+
+Writer/ Reader: follows character streams. 
+
+FileWriter and FileReader are used to read and write files. 
+
+
+FileWriter:
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriterDemo {
+	
+	public static void main(String[] args) throws IOException {
+	
+		 FileWriter fw = new FileWriter("/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/FileIO/src/users.txt");
+	
+		 fw.write("naveen, nikhil, rajesh, rahul");
+
+		 fw.flush();
+		 
+		 fw.close();
+		 System.out.println("done");
+	}
+
+}
+
+
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderDemo {
+	
+	public static void main(String[] args) throws IOException {
+		FileReader fileReader = new FileReader("/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/FileIO/src/users.txt");
+	
+		 int i=0;
+		 while((i=fileReader.read()) !=-1) {
+			  System.out.print((char)i); 
+		 }
+	}
+
+}
+
+Annotations:
+
+Annotation is a meta data that can be used to provide some information to 
+an entity (JVM / Java Compiler).
+
+All the annotations starts with '@'. 
+
+Core Java Provides few annotations to work with such as @Overide
+
+
+
+class A{
+	
+	void getUsersById() {
+		System.out.println("m1() of A called");
+	}
+	
+}
+class B extends A{
+	
+	@Override
+	void getUsersById() { 
+		System.out.println("m1() of B called");
+	}
+	
+}
+
+public class AnnotationDemo {
+	
+	public static void main(String[] args) {
+		 B b=new B();
+		 b.getUsersById();
+	}
+
+}
+
+
+
+
+
+
