@@ -1,0 +1,100 @@
+As part of Java 8, Functional Interfaces, Lambda expressions and default methods 
+are the most important and frequently used features. 
+
+
+Functional Interface: 
+
+If any interface has only one asbtract method, then it is considered as 
+functional interface , which allows us to implement lambda expressions on it. 
+
+If we want to confirm on functional interface, then we can use @FunctionalInterface 
+annotation. 
+
+
+
+@FunctionalInterface
+interface Remote{
+	   public void onOff();
+	   
+}
+//
+//class RemoteImpl implements Remote{
+//
+//	@Override
+//	public void onOff() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//	
+//	
+//}
+//
+//
+//class RemoteImpl2 implements Remote{
+//
+//	@Override
+//	public void onOff() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//	
+//	
+//}
+
+public class LambdaExpressionsDemo {
+	
+	 public static void main(String[] args) {
+		
+		   // Lambda Expression
+		 Remote remote = () -> System.out.println("implementation 1");
+		 Remote remote2= () -> System.out.print("Implementation 2");
+		 
+		 remote.onOff();
+		 remote2.onOff();
+	}
+
+}
+
+
+Default methods: 
+
+
+interface A{
+	  public void m1();
+	  public default void m2() {
+		    System.out.println("I am a default method");
+	  }
+}
+
+class B implements A{
+	 public void m1() {
+		   System.out.println("m1()");
+	 }
+	 public void m2() {
+		 System.out.println("m2() of B");
+	 }
+}
+
+
+class C implements A{
+
+	@Override
+	public void m1() {
+		System.out.println("m1() of C");
+		
+	}
+	
+}
+public class DeafaultMethods {
+
+	 public static void main(String[] args) {
+		A aa= new B();
+		aa.m1();
+		aa.m2();
+		C c1= new C();
+		c1.m2();
+	}
+		
+}
+
+
