@@ -56,6 +56,11 @@ public class LambdaExpressionsDemo {
 }
 
 
+HashSet -> capacity and load factor.
+
+
+
+
 Default methods: 
 
 
