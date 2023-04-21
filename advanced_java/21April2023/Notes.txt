@@ -1,0 +1,150 @@
+
+Connection to MongoDB Database:
+
+Jar:  mongodb-driver-3.11.2.jar 
+
+
+Connection details:
+
+ MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
+ MongoCredential  credential = MongoCredential.createCredential("sampleUser", "myDb", "password".toCharArray()); 
+ System.out.println("Connected to the database successfully"); 
+
+
+ Problem Statement:
+
+ Create a table in DB using JDBC.
+
+ import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class CreateTable {
+	public static void main(String[] args) {
+		try {
+		 Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ottplatform", "root","ipl2021@dubai");
+	   Statement statement =   connection.createStatement();
+	   statement.execute("create table movies(id int, name varchar(40), runtime int)");
+		}catch(Exception e) {
+			 System.out.println(e);
+		}	
+	}	
+}
+
+Statement,PreparedStatement, Metadata:
+
+Statement: 
+
+It is an interface which is used to send the SQL Queries to the database. 
+
+Statement interface does not have the capabiity of checking the syntax of the SQL Query before sending 
+it to the database.
+
+
+PreparedStatement:  PreparedStatement is a child interface of Statement interface where the PreparedStatement 
+is capable of checking the syntax of the query before sending the query to the database. 
+
+PreparedStatement is a pre-compiled SQL Query statement. 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class PreparedStatementDemo {
+	
+	public static void main(String[] args) {
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ottplatform", "root","ipl2021@dubai");
+		PreparedStatement pstmt = connection.prepareStatement("insert into movies values(?,?,?)");
+		pstmt.setInt(1, 101);
+		pstmt.setString(2, "Movie 1");
+		pstmt.setInt(3, 120);
+		pstmt.executeUpdate();
+		System.out.println("done");
+			
+		}catch(Exception e) {
+			 System.out.println(e);
+		}
+		 
+		
+	}
+
+}
+
+Meta Data:
+
+DatabaseMetaData :  used to get the database information
+
+ResultSetMetaData : used to get the table information 
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+public class MetaDataDemo {
+	
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/ottplatform", "root","ipl2021@dubai");
+			 // Database Meta Data
+			DatabaseMetaData databaseMetaData =	connection.getMetaData();
+		  System.out.println(databaseMetaData.getDatabaseProductName());
+		  System.out.println(databaseMetaData.getDatabaseProductVersion());
+		  
+		  // ResultSet Meta Data
+		        Statement statement = connection.createStatement();
+		        
+		       ResultSet resultSet =   statement.executeQuery("select * from movies");
+		       
+		      ResultSetMetaData rsmd =  resultSet.getMetaData();
+		
+		     System.out.println(rsmd.getColumnCount());
+		     
+		     System.out.println(rsmd.getColumnLabel(2));
+		     
+		     
+		  
+		}catch(Exception e) {
+			  System.out.println(e);
+		}
+		
+	}
+
+}
+
+Drawbacks of JDBC:
+
+1. Switching from one database server to other database server is not an easy migration. 
+
+2. Java is all about objects, but we pass SQL Queries instead of objects which means we cannot use 
+objects effectively. 
+
+Hibernate: 
+
+1. with a simple database configuration change, we can easily move from one database server to another database server without 
+changing any logic in the code. 
+
+2. Hibernate internally creates the SQL Queries and the developer need not to worry about writing queries.
+
+3. Hibernate deals with objects , which means, the developer can pass an object to get the functionality done. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

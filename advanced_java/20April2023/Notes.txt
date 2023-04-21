@@ -109,3 +109,7 @@ Implement Product Management System using JDBC.
 4. list all the products 
 
 cols: pid, name, price,seller,quantity
+
+
+ 
+
