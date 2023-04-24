@@ -1,0 +1,116 @@
+Introduction to Web Application:
+
+Any Application that can be accessible with internet is known 
+as Web Application. 
+
+A web Application is run by a Web Server. 
+
+Web Server:
+
+A Web Server is an application which takes web based applications to 
+server over a network. 
+
+Examples:  Apache Tomcat, Glassfish,Jetty, Adobe JRUN...
+
+
+Download Link:
+
+https://tomcat.apache.org/download-90.cgi
+
+Eclipse:  Eclipse IDE for Enterprise Java and Web Developers
+
+https://www.eclipse.org/downloads/packages/
+
+
+
+Servlet: 
+
+A Servlet is a java class that either implements a Servlet interface / 
+extends GenericServlet class / extends HttpServlet class to provide 
+some resources to the end users over the network. 
+
+
+Java class that implements a Servlet interface:
+
+class FirstServlet implements Servlet{
+
+
+}
+
+Note: The servlet interface contains 5 methods and above FirstServlet 
+class should provide the implementation for all the 5 methods. 
+
+web.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+        <servlet>
+        <servlet-name>firstServlet</servlet-name>
+        <servlet-class>com.firstapp.FirstServlet</servlet-class>
+        </servlet>
+        
+         <servlet-mapping>
+         <servlet-name>firstServlet</servlet-name>
+         <url-pattern>/first</url-pattern>
+         
+         </servlet-mapping>
+  
+</web-app>
+
+
+
+FirstServlet.java:
+package com.firstapp;
+
+import java.io.IOException;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+/**
+ * Servlet implementation class FirstServlet
+ */
+public class FirstServlet implements Servlet {
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		System.out.println("Destroy method called");
+		
+	}
+
+	@Override
+	public ServletConfig getServletConfig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getServletInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void init(ServletConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		System.out.println("Init method called");
+		
+	}
+
+	@Override
+	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("Service Method called");
+		
+	}
+
+}
+
+
+
+

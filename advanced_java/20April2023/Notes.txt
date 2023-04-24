@@ -30,7 +30,6 @@ public class CRUDOperations {
 			System.out.println(e);
 		}
 	}
-	
 	static void updateUser(int id,String username, String password) {
 		//update users set username='kirankumar' where userId=1;
 		 String query ="";
