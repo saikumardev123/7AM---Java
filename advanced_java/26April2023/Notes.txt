@@ -213,7 +213,6 @@ public class User extends HttpServlet {
 			System.out.println(e);
 		}	
 	}
-	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 // Logic

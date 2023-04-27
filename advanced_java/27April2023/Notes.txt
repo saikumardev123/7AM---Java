@@ -1,0 +1,29 @@
+
+doPut, doDelete: 
+
+As HttpServlet can support doPut, doDelete methods but html form tag supports only 
+get and post requests , hence any operation that we want to achieve should be 
+either done using get or post methods only. 
+
+Session Management:
+
+
+Http Protocol does not remember every request information, which means, every time 
+a request coming from the client is considered as a new request. 
+
+HttpSession provides a simple way of maintaining a session. 
+
+
+Company: Visitor  - entry details
+
+         Visitor  - entry details
+
+        Employee - tempidcard- 2 days
+
+
+        
+
+ 
+
+
+
