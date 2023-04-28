@@ -1,0 +1,139 @@
+
+
+HttpSession management: 
+
+
+Servlet1.java:
+
+package com.httpsession.demo;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Servlet1
+ */
+@WebServlet("/servlet1")
+public class Servlet1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public Servlet1() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		 System.out.println("Servlet1 do get executed");
+		 
+		 HttpSession session =  request.getSession();
+		 
+		 session.setAttribute("username","kiran");
+		 
+		  PrintWriter out =  response.getWriter();
+		  
+		  out.print("<a href='./servlet2'>Servlet2</a>");
+	}
+
+}
+
+
+
+Servlet2.java:
+
+package com.httpsession.demo;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Servlet2
+ */
+@WebServlet("/servlet2")
+public class Servlet2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Servlet2() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		  System.out.println("I am in Servlet 2");
+		  HttpSession session =  request.getSession(false);
+		  String username = (String)session.getAttribute("username");
+		  
+		  System.out.println("username:"+username);
+		  PrintWriter out =response.getWriter();
+		  out.print("<h1>Welcome, "+username+"</h1>");
+	}
+
+}
+
+
+JSP:  Java Server Pages 
+
+
+Java Server Pages are the extension to Servlets. 
+
+In Servlets, we write HTML code in java code which is very difficult 
+to manage. 
+
+In JSP, we write java code in HTML Code which is easy to manage. 
+
+JSP internally uses Servlets only hence we all the features provided in servlets are applicable for JSPs also.
+
+index.jsp:
+
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+<!-- Scriptlet -->
+
+ <% 
+  out.print("<h1>Hello I am from JSP</h1>"); 
+  session.setAttribute("username", "Rajesh");
+  out.print("<a href='user.jsp'>User</a>");
+ 
+ %>
+
+</body>
+
+</html>
+
+
+user.jsp:
+<%
+   String username = (String)session.getAttribute("username");
+    out.print("<h1>Welcome "+username + "</h1>");
+%>

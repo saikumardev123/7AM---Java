@@ -21,7 +21,7 @@ Company: Visitor  - entry details
         Employee - tempidcard- 2 days
 
 
-        
+
 
  
 
