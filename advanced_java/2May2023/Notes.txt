@@ -1,0 +1,200 @@
+CRUD Operations using Hibernate:
+
+CRUD - Create Retrieve Update Delete 
+
+Application:
+
+
+pom.xml:
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.crud.hibernate</groupId>
+  <artifactId>Hibernate-CRUD</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Hibernate-CRUD</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+     <dependency>  
+    <groupId>org.hibernate</groupId>  
+    <artifactId>hibernate-core</artifactId>  
+    <version>5.3.1.Final</version>  
+</dependency> 
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
+  </dependencies>
+</project>
+
+
+
+hibernate.cfg.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd"> 
+        <hibernate-configuration>
+        
+             <session-factory>
+             
+             <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>  
+             <property name="connection.url">jdbc:mysql://localhost:3306/ottplatform</property>
+              <property name="connection.username">root</property>    
+        <property name="connection.password">ipl2021@dubai</property>    
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>     
+        <property name="hbm2ddl.auto">update</property> 
+        <property name="show_sql">true</property>
+         <mapping class="com.crud.hibernate.User"/>
+             
+             </session-factory>
+        
+        </hibernate-configuration>
+
+
+User.java:
+
+package com.crud.hibernate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class User {
+	@GeneratedValue
+	@Id
+	private int userId; 
+	@Column
+	private String username;
+	@Column
+	private String password;
+	@Column
+	private String email;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}
+
+
+App.java:
+
+package com.crud.hibernate;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	StandardServiceRegistry standardServReg =  new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        
+        Metadata metaData =  new MetadataSources(standardServReg).getMetadataBuilder().build();
+        
+        SessionFactory sessionFactory= metaData.getSessionFactoryBuilder().build();
+        
+        System.out.println("sessionFactory"+ sessionFactory);
+        
+       Session session =  sessionFactory.openSession();
+       
+          Transaction transaction =  session.beginTransaction();
+          // create
+//              User user = new User();
+//              user.setEmail("raj@gmail.com");
+//              user.setPassword("raj");
+//              user.setUsername("raj");
+//              session.save(user);
+         
+          // update
+//        User user = new User();
+//        user.setUserId(2);
+//        user.setEmail("kiran@gmail.com");
+//        user.setPassword("kiran123");
+//      user.setUsername("kiran");
+//        session.update(user);
+        
+           // delete
+          
+//        User user = new User();
+//        user.setUserId(2);
+//        user.setEmail("kiran@gmail.com");
+//        user.setPassword("kiran123");
+//      user.setUsername("kiran");
+//        session.delete(user);
+          
+          // deleting based on userId
+//          User user = new User();
+//        user.setUserId(5);
+//        session.delete(user);
+            Query<User> query =  session.createQuery("from User");
+            List<User> list =  query.list();
+             Iterator<User> iterator = list.iterator();
+             
+             while(iterator.hasNext()) {
+            	 User u1 =iterator.next();
+            	 System.out.println(u1.getUserId() + "\t"+ u1.getUsername()+ "\t"+ u1.getPassword()+"\t"+ u1.getEmail());
+             }
+        
+        
+          transaction.commit();
+    }
+}
+
+Hibernate Cache Mechanism:
+
