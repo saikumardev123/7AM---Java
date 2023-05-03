@@ -1,0 +1,155 @@
+Hibernate Cache Mechanism:
+
+There are 2 levels of hibernate cache mechanism, 
+
+1. first level cache (by default):
+
+It is applicable to a session, which means the caching happens 
+only to a particular session. with in that session, we can access 
+the data without making multiple (same) database calls. 
+
+Session session = sessionFactory.openSession();
+
+User  u1 = session.get(User.java,1) //  DB Call -> data gets stored in Cache ->    user object with id 1
+
+User u2 = session.get(User.java,1) // No DB Call -> data gets fetched from the cache
+
+User u3 = session.get(User.java,1) // No DB Call -> data gets fetched from the cache
+
+User u4 = session.get(User.java,2) //  DB Call -> data gets fetched from the DB and then gets stored into the cache. 
+
+User u5 = session.get(User.java,2) // NO DB Call -> data gets fetched from the cache.
+
+
+App:
+
+hibernate.cfg.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd"> 
+        <hibernate-configuration>
+        
+             <session-factory>
+             
+             <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>  
+             <property name="connection.url">jdbc:mysql://localhost:3306/ottplatform</property>
+              <property name="connection.username">root</property>    
+        <property name="connection.password">ipl2021@dubai</property>    
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>     
+        <property name="hbm2ddl.auto">update</property> 
+        <property name="show_sql">true</property>
+         <mapping class="com.crud.hibernate.User"/>
+             
+             </session-factory>
+        
+        </hibernate-configuration>
+
+
+        App.java:
+
+        package com.crud.hibernate;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	StandardServiceRegistry standardServReg =  new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        
+        Metadata metaData =  new MetadataSources(standardServReg).getMetadataBuilder().build();
+        
+        SessionFactory sessionFactory= metaData.getSessionFactoryBuilder().build();
+        
+        System.out.println("sessionFactory"+ sessionFactory);
+        
+       Session session =  sessionFactory.openSession();
+        User user = session.get(User.class,3);
+       User user2 =  session.get(User.class, 3);
+       User user3 =  session.get(User.class, 3);
+       System.out.println(user.getEmail());
+       System.out.println(user2.getEmail());
+       System.out.println(user3.getEmail());
+       
+       session.close();
+       
+       System.out.println("-------------------------------------------------");
+       Session session2= sessionFactory.openSession();
+       User user4 = session2.get(User.class, 3);
+       User user5 = session2.get(User.class, 3);
+         
+    }
+}
+
+
+User.java:
+
+package com.crud.hibernate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class User {
+	@GeneratedValue
+	@Id
+	private int userId; 
+	@Column
+	private String username;
+	@Column
+	private String password;
+	@Column
+	private String email;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}
+
+
+
+2. second level cache (we need to configure this): 
+
+It is applicable at application level via session factory where 
+the multiple sessions can access the cache.
+

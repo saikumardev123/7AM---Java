@@ -198,3 +198,6 @@ public class App
 
 Hibernate Cache Mechanism:
 
+
+
+
