@@ -1,0 +1,234 @@
+Second Level Cache:
+
+pom.xml:
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.crud.hibernate</groupId>
+  <artifactId>Hibernate-CRUD</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Hibernate-CRUD</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.2.16.Final</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
+
+<dependency>
+    <groupId>net.sf.ehcache</groupId>
+    <artifactId>ehcache</artifactId>
+    <version>2.10.3</version>
+</dependency>
+    
+   
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-ehcache</artifactId>
+    <version>5.2.16.Final</version>
+</dependency> 
+  </dependencies>
+</project>
+
+
+
+hibernate.cfg.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd"> 
+        <hibernate-configuration>
+        
+             <session-factory>
+             
+             <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>  
+             <property name="connection.url">jdbc:mysql://localhost:3306/ottplatform</property>
+              <property name="connection.username">root</property>    
+        <property name="connection.password">ipl2021@dubai</property>    
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>     
+        <property name="hbm2ddl.auto">update</property> 
+        <property name="show_sql">true</property>
+         <property name="cache.use_second_level_cache">true</property>   
+<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> 
+         <mapping class="com.crud.hibernate.User"/>
+             
+             </session-factory>
+        
+        </hibernate-configuration>
+
+
+User.java:
+
+package com.crud.hibernate;
+
+import javax.persistence.Cacheable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+@Entity
+@Table
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class User {
+	@GeneratedValue
+	@Id
+	private int userId; 
+	@Column
+	private String username;
+	@Column
+	private String password;
+	@Column
+	private String email;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}
+
+App.js:
+
+package com.crud.hibernate;
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	StandardServiceRegistry standardServReg =  new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        
+        Metadata metaData =  new MetadataSources(standardServReg).getMetadataBuilder().build();
+        
+        SessionFactory sessionFactory= metaData.getSessionFactoryBuilder().build();
+        
+        System.out.println("sessionFactory"+ sessionFactory);
+        
+       Session session =  sessionFactory.openSession();
+        User user = session.get(User.class,3); // make select query
+       User user2 =  session.get(User.class, 3); // no DB Call- get from cache
+       System.out.println(user.getEmail());
+       System.out.println(user2.getEmail());      
+       session.close();
+       
+       System.out.println("-------------------------------------------------");
+       Session session2= sessionFactory.openSession();
+       User user4 = session2.get(User.class, 3); // no DB Call - get from cache
+       User user5 = session2.get(User.class, 3);
+       
+       System.out.println(user4.getEmail());
+       
+       session2.close();
+       
+       System.out.println("-------------------------------------------------");
+       
+       Session session3 = sessionFactory.openSession();
+       
+        User user6 = session3.get(User.class, 3); // no DB Call - get from cache
+        System.out.println(user6.getEmail());
+       
+       
+       
+         
+    }
+}
+
+
+Spring Framework:
+
+Spring Framework is an open source application framework provides 
+infrastructure to build robust enterprise applications. 
+
+SF works on the principle of Dependency Injection.
+
+Dependency Injection:
+
+Dependency Injection is the process of providing / injecting 
+an object on the fly to the respective dependant class.
+
+
+class A{
+   String username;
+   String password;
+}
+
+class B{
+
+   A aa;
+
+}
+
+Through Inversion of Control (Container) an Object A with values 
+of username, password can be injected via an xml file using 
+dependency injection.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -153,3 +153,5 @@ public class User {
 It is applicable at application level via session factory where 
 the multiple sessions can access the cache.
 
+
+
