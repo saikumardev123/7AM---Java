@@ -1,0 +1,183 @@
+IOC vs DI: 
+
+IOC stands for Inversion of Control is a container that provides 
+a mechanism to implement dependency injection.
+
+DI stands for dependency injection. DI is the process of 
+providing the objects / simple values on the fly to the 
+java program either using xml / properties file is known as 
+DI.
+
+MVC:
+
+M - Model  - Data
+
+V - View  - UI
+
+C - Controller - Mediator
+
+Stereo Type Annotations:
+
+@Controller , @Service, @Repository, @Autorwired 
+
+
+Code Snippets:
+
+Controller -> UserController.java 
+
+package com.user.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.user.model.User;
+import com.user.service.UserService;
+import com.user.service.UserServiceImpl;
+
+@Controller
+public class UserController {
+
+	     private UserService userService = new UserServiceImpl();
+	 
+	   public void addUser(User user) {
+		   
+		     System.out.println("In Controller");
+		   
+		    userService.add(user);
+		   
+	   }
+}
+
+UserService.java:
+
+package com.user.service;
+
+import com.user.model.User;
+
+public interface UserService {
+
+	public void add(User user);
+	public void all();
+	
+}
+
+
+UserServiceImpl.java:
+
+package com.user.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.user.dao.UserDAO;
+import com.user.dao.UserDAOImpl;
+import com.user.model.User;
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+	//@Autowired
+	 private UserDAO userDAO = new UserDAOImpl();
+	
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		System.out.println("In Service");
+		
+		userDAO.add(user);
+		
+	}
+
+	public void all() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+model:
+User.java:
+
+package com.user.model;
+
+public class User {
+	
+	private int id;
+	private String name;
+	private String password;
+	private String email;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	
+}
+
+DAO:
+
+UserDAO.java:
+
+package com.user.dao;
+
+import com.user.model.User;
+
+public interface UserDAO {
+
+	public void add(User user);
+	public void all();
+	
+}
+
+UserDAOImpl.java:
+
+package com.user.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.user.model.User;
+
+@Repository
+public class UserDAOImpl  implements UserDAO{
+
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("In DAO Impl");
+		System.out.println(user.getEmail() + "\t"+ user.getName());
+		
+	}
+
+	public void all() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+Problem Statement: 
+
+
+Create Product management system with MVC structure.
+
