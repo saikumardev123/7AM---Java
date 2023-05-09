@@ -1,0 +1,19 @@
+package com.user.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.user.model.User;
+
+@Controller
+public class UserController {
+	
+	
+	 
+	   public void addUser(User user) {
+		   
+		   
+		   
+	   }
+	
+
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <servlet>
+    <servlet-name>firstServlet</servlet-name>
+    <servlet-class>com.firstapp.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>firstServlet</servlet-name>
+    <url-pattern>/first</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>secondServlet</servlet-name>
+    <servlet-class>com.secondapp.SecondServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>secondServlet</servlet-name>
+    <url-pattern>/second</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>thirdServlet</servlet-name>
+    <servlet-class>com.thirdapp.ThirdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>thirdServlet</servlet-name>
+    <url-pattern>/third</url-pattern>
+  </servlet-mapping>
+</web-app>

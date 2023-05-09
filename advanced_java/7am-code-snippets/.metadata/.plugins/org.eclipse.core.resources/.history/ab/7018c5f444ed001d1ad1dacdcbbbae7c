@@ -1,0 +1,20 @@
+package com.user.service;
+
+import org.springframework.stereotype.Repository;
+
+import com.user.model.User;
+
+@Repository
+public class UserServiceImpl  implements UserDAO{
+
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void all() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

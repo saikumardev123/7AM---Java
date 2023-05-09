@@ -1,0 +1,25 @@
+package com.user.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.user.dao.UserDAO;
+import com.user.model.User;
+
+@Service
+public class UserServiceImpl  implements UserService{
+
+	@Autowired
+	 private UserDAO userDAO;
+	
+	public void add(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void all() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

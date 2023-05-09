@@ -1,0 +1,8 @@
+package com.user.dao;
+
+public interface User {
+
+	public void add(User user);
+	public void all();
+	
+}

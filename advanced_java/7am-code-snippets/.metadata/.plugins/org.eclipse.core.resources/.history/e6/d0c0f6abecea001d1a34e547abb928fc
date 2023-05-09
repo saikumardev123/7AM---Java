@@ -1,0 +1,13 @@
+package com.spring.constructor.di.dependent.ConstructorDependentDI;
+
+public class Seller {
+	 private String sellerName;
+	 private String address;
+	
+	public String getSellerName() {
+		return sellerName;
+	}
+	public String getAddress() {
+		return address;
+	}
+}

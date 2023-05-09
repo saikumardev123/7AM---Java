@@ -1,0 +1,23 @@
+package com.spring.constructor.di.dependent.ConstructorDependentDI;
+
+public class Product {
+	
+	private int productId;
+	private String name;
+	private int price;
+	private Seller seller;
+	
+	public int getProductId() {
+		return productId;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public Seller getSeller() {
+		return seller;
+	}
+	
+}

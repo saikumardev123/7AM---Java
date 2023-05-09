@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.spring.demo.di.ConstructorDI&apos; to &apos;com.spring.demo.di.setterdi&apos;&#x0A;- Original project: &apos;SetterDI&apos;&#x0A;- Original element: &apos;SetterDI/src/main/java/com.spring.demo.di.ConstructorDI&apos;&#x0A;- Renamed element: &apos;SetterDI/src/main/java/com.spring.demo.di.setterdi&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.spring.demo.di.ConstructorDI&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.spring.demo.di.ConstructorDI" name="com.spring.demo.di.setterdi" qualified="false" references="true" stamp="1683253112774" textual="false" version="1.0"/>
+</session>

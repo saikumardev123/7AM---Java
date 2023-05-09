@@ -1,0 +1,60 @@
+package com.crud.hibernate;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	StandardServiceRegistry standardServReg =  new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        
+        Metadata metaData =  new MetadataSources(standardServReg).getMetadataBuilder().build();
+        
+        SessionFactory sessionFactory= metaData.getSessionFactoryBuilder().build();
+        
+        System.out.println("sessionFactory"+ sessionFactory);
+        
+       Session session =  sessionFactory.openSession();
+       
+        User user = session.get(User.class,3);
+       
+         // Transaction transaction =  session.beginTransaction();
+         
+//            Query<User> query =  session.createQuery("from User");
+//            List<User> list =  query.list();
+//             Iterator<User> iterator = list.iterator();
+//             
+//             while(iterator.hasNext()) {
+//            	 User u1 =iterator.next();
+//            	 System.out.println(u1.getUserId() + "\t"+ u1.getUsername()+ "\t"+ u1.getPassword()+"\t"+ u1.getEmail());
+//             }
+//        
+//             
+//             System.out.println("-------------------------------------------------------------");
+//        
+//            Query<User> query2 =  session.createQuery("from User");
+//            List<User> list2 =  query2.list();
+//            Iterator<User> iterator2 = list2.iterator();
+//            
+//            while(iterator2.hasNext()) {
+//           	 User u2 =iterator2.next();
+//           	 System.out.println(u2.getUserId() + "\t"+ u2.getUsername()+ "\t"+ u2.getPassword()+"\t"+ u2.getEmail());
+//            }
+//            
+         
+    }
+}

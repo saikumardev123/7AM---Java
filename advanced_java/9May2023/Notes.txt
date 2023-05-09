@@ -1,0 +1,11 @@
+
+Spring MVC:
+
+Model :  Java Class - Hibernate - Database Operations
+
+View : UI - JSP
+
+Controller : Servlet
+
+
+

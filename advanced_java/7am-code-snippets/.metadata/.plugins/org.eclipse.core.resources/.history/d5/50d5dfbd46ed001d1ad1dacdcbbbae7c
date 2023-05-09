@@ -1,0 +1,17 @@
+package com.stereo.annotations;
+
+import com.user.controller.UserController;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        
+    	UserController controller = new UserController();
+    	
+    }
+}
