@@ -8,6 +8,6 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Home-check"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0&quot; -Dcatalina.home=&quot;/Users/saikumar/Downloads/apache-tomcat-9.0.73&quot; -Dwtp.deploy=&quot;/Users/saikumar/Desktop/Java-7AM/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0&quot; -Dcatalina.home=&quot;/Users/saikumar/Downloads/apache-tomcat-9.0.73&quot; -Dwtp.deploy=&quot;/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps&quot;"/>
 <stringAttribute key="server-id" value="Tomcat v9.0 Server at localhost"/>
 </launchConfiguration>
