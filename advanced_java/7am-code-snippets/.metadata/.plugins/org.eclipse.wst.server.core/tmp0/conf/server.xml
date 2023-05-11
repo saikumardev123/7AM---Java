@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/springmvc-forms-taglib" path="/springmvc-demo" reloadable="true" source="org.eclipse.jst.j2ee.server:springmvc-forms-taglib"/></Host>
+      <Context docBase="/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/springmvchibernatedemo" path="/springmvc-demo" reloadable="true" source="org.eclipse.jst.j2ee.server:springmvchibernatedemo"/></Host>
     </Engine>
   </Service>
 </Server>

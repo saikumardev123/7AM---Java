@@ -44,6 +44,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.mvc.forms.demo"/>
 			<item value="com.stereo.annotations"/>
 			<item value="com.spring.constructor.di.dependent.ConstructorDependentDI"/>
 			<item value="com.spring.demo.di.ConstructorDI"/>
@@ -51,6 +52,7 @@
 			<item value="com.firstpp.hibernate"/>
 		</list>
 		<list key="groupId">
+			<item value="com.spring.mvc.forms.demo"/>
 			<item value="com.stereo.annotations"/>
 			<item value="com.spring.constructor.di.dependent"/>
 			<item value="com.spring.demo.di"/>
@@ -58,6 +60,7 @@
 			<item value="com.firstpp.hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="springmvc-forms"/>
 			<item value="stereotypeannotations"/>
 			<item value="ConstructorDependentDI"/>
 			<item value="ConstructorDI"/>
