@@ -1,5 +1,0 @@
-package com.spring.constructor.di.dependent.ConstructorDependentDI;
-
-public class Seller {
-
-}
