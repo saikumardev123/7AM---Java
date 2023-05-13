@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
         ">
-     <context:component-scan base-package="com.springmvc.demo.controller"/>  
+     <context:component-scan base-package="com.springmvc.demo"/>  
       <mvc:annotation-driven/> 
          <!-- view resolver-->
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  

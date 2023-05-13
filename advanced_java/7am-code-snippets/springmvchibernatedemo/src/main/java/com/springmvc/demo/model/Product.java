@@ -49,4 +49,9 @@ public class Product {
 	public void setPrice(long price) {
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.name +"\t"+ this.imageURL + "\t"+ this.price + "\t"+ this.seller;
+	}
 }
