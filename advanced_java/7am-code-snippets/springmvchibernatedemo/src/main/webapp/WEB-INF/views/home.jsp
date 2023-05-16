@@ -26,6 +26,32 @@
 
 </form:form>
 
+<br><br><br><br><br><br>
+
+<form:form action="./updateProduct" method="post" modelAttribute="product">
+
+<form:input type="number" path="pid" placeholder="pid here"/>
+
+<form:input type="text" path="name" placeholder="name here"/>
+
+<form:input type="text" path="imageURL" placeholder="imageURL here"/>
+
+<form:input type="text" path="seller" placeholder="seller here"/>
+
+<form:input type="number" path="price" placeholder="price here"/>
+
+<button>Update Product</button>
+
+</form:form>
+
+<br><br><br>
+
+<form:form action="./deleteProduct" modelAttribute="product">
+
+<button>Delete Product</button>
+
+</form:form>
+
 </body>
 </html>
 
