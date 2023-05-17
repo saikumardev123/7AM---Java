@@ -1,8 +1,0 @@
-package com.user.dao;
-
-public interface UserDAO {
-
-	public void add(User user);
-	public void all();
-	
-}

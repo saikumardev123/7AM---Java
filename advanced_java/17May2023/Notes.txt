@@ -1,0 +1,5 @@
+Spring Boot:
+
+Spring Boot is a framework of frameworks, spring boot is on top of spring framework 
+to provide easiest way of implementing restful web services.
+
