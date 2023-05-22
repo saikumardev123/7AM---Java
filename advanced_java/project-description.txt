@@ -1,0 +1,17 @@
+Project: ECommerce 
+
+
+Modules: 
+
+User Management 
+
+Product Management 
+
+Payment Gateways (RazorPay)
+
+Category Management 
+
+Spring Security
+
+
+

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/saikumar/Desktop/Java-7AM/7AM---Java/advanced_java/7am-code-snippets/digicart"/>
 			<item value="/Users/saikumar/Downloads/demo"/>
 			<item value="/Users/saikumar/Downloads/springboot-demo"/>
 			<item value="/Users/saikumar/Downloads/Ecommercebackendproject-master"/>
