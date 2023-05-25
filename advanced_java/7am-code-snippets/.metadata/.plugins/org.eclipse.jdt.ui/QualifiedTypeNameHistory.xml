@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="com.springmvc.demo.model.Product"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="com.springmvc.demo.service.ProductService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
 <fullyQualifiedTypeName name="com.springmvc.demo.dao.ProductDAOImpl"/>
@@ -33,7 +32,6 @@
 <fullyQualifiedTypeName name="com.demo.spring.boot.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="com.demo.spring.boot.model.Product"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
@@ -54,10 +52,12 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.ecommerce.digitcart.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="com.ecommerce.digitcart.utils.Response"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 </qualifiedTypeNameHistroy>

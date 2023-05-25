@@ -21,23 +21,21 @@ public class ProductServiceImpl implements ProductService  {
 		
 		
 	}
-
 	@Override
 	public List<Product> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.list();
 	}
-
 	@Override
 	public boolean update(Product product) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
 	public boolean delete(Product product) {
 		// TODO Auto-generated method stub
-		return false;
+		System.out.println("inside service");
+		return productDAO.delete(product);
 	}
 
 }

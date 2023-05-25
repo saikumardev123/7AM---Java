@@ -53,10 +53,11 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public boolean delete(Product product) {
 		boolean result= true;
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		try {
 			Transaction transaction = session.beginTransaction();
-			session.delete(product);
+			//session.remove(session.merge(product));
+			session.remove(product);
 			transaction.commit();
 		}
 		catch(Exception exception) {

@@ -31,8 +31,9 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product> list() {
-		// TODO Auto-generated method stub
-		return null;
+		 Session session=sessionFactory.openSession();
+		  List<Product> list = session.createQuery("from Product").list();
+		return list;
 	}
 
 	@Override
@@ -43,8 +44,22 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public boolean delete(Product product) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("inside DAO");
+		boolean result =false;
+		
+		 Session session=sessionFactory.openSession();
+		 Transaction transaction = session.beginTransaction();
+		 try {
+			 Product pro = (Product)session.merge(product);
+			 session.remove(pro);
+			 transaction.commit();
+			 result= true;
+		 }
+		 catch(Exception e) {
+			  System.out.println(e);
+			  result= false;
+		 }
+		return result;
 	}
 
 }
