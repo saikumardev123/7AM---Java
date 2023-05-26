@@ -1,5 +1,6 @@
 package com.ecommerce.digitcart.controller;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.digitcart.model.User;
 import com.ecommerce.digitcart.service.UserService;
+import com.ecommerce.digitcart.utils.Payment;
 import com.ecommerce.digitcart.utils.Response;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
 
 @RestController
 public class UserController {
@@ -67,6 +72,27 @@ public class UserController {
 			    	  response.setOperationStatus("failure");
 			    	return new ResponseEntity<Object>(response,HttpStatus.BAD_REQUEST);
 			    }
+		
+	}
+	
+
+	//rzp_test_ZAGfPt6YgsgBXE 
+	//BSYSOrXqmAx6HmLt1en693ZB
+
+	@PostMapping("/createOrder")
+	public ResponseEntity<Object> createOrder(@RequestBody Payment payment) throws RazorpayException{
+		
+		RazorpayClient client= new RazorpayClient("rzp_test_ZAGfPt6YgsgBXE", "BSYSOrXqmAx6HmLt1en693ZB");
+		
+		 JSONObject jsonObject = new JSONObject();
+		 jsonObject.put("amount",payment.getAmount());
+		 jsonObject.put("currency",payment.getCurrency());
+
+		Order order = client.orders.create(jsonObject);
+		Response response = new Response();
+		response.setMessage(order.get("id"));
+		response.setOperationStatus("order created");
+		return  new ResponseEntity<Object>(response,HttpStatus.CREATED);
 		
 	}
 	
